@@ -1,0 +1,3 @@
+<template>
+  <longdo-map />
+</template>
