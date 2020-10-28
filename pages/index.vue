@@ -137,28 +137,6 @@ export default {
             'https://cdn.discordapp.com/attachments/746260527235334237/763327650931408896/banner_serum-01-scaled.jpg',
         },
       ],
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'register',
-          to: '/register',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'fitnesslocation',
-          to: '/fitnesslocation',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'fitnesshome',
-          to: '/fitnesshome',
-        },
-      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
@@ -167,3 +145,18 @@ export default {
   },
 }
 </script>
+<style>
+.theme--dark.v-application {
+  background-color: rgb(177, 202, 255);
+  background-attachment: fixed;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.v-card {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 10px;
+  background-color: rgb(121, 183, 255);
+}
+</style>

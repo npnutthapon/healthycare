@@ -150,9 +150,7 @@ Province"
             />
           </v-col>
         </v-row>
-        <nuxt-link to="/login">
-          <v-btn color="success" class="mr-4" @click="addData">Submit</v-btn>
-        </nuxt-link>
+        <v-btn color="success" class="mr-4" @click="addData">Submit</v-btn>
         <v-btn color="warning" class="mr-4" @click="reset"> Reset Form </v-btn>
       </v-container>
     </v-card>
@@ -176,6 +174,7 @@ export default {
       address: '',
       district: '',
       province: '',
+      position: 'user',
       rules: [(value) => !!value || 'Required.'],
       min: (v) => v.length >= 8 || 'Min 8 characters',
       birthday: new Date().toISOString().substr(0, 10),
@@ -183,7 +182,6 @@ export default {
       items: ['Male', 'Female'],
     }
   },
-
   beforeCreate() {
     if (!firebase.auth().currentUser) {
       console.log('No Login')
@@ -210,6 +208,7 @@ export default {
         address: this.address,
         district: this.district,
         province: this.province,
+        position: this.position,
       }
       db.collection('MyForm')
         .doc('formdata')
@@ -220,7 +219,6 @@ export default {
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
-
       // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
       const dataText = {
         name: this.name,
@@ -235,13 +233,14 @@ export default {
         address: this.address,
         district: this.district,
         province: this.province,
+        position: this.position,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
-      db.collection('MyText')
+      db.collection('MyDataRegister')
         .doc()
         .set(dataText)
         .then(function () {
-          console.log('Document successfully written! -> MyText')
+          console.log('Document successfully written! -> MyDataRegister')
         })
         .catch(function (error) {
           console.error('Error writing document: ', error)

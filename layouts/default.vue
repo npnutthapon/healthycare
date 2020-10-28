@@ -79,13 +79,23 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'map',
-          to: '/map',
+          title: 'fitness',
+          to: '/fitness',
         },
         {
           icon: 'mdi-chart-bubble',
           title: 'pay',
           to: '/pay',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'admin',
+          to: '/admin',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'image',
+          to: '/image',
         },
       ],
       miniVariant: false,
@@ -98,7 +108,7 @@ export default {
 </script>
 <style>
 .theme--dark.v-application {
-  background-color: rgb(177, 202, 255);
+  background-color: rgb(255, 255, 255);
   background-attachment: fixed;
   background-position: 100% 100%;
   background-repeat: no-repeat;
@@ -107,7 +117,7 @@ export default {
 .v-card {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 18px;
-  background-color: rgba(255, 255, 255, 0);
+  padding: 10px;
+  background-color: rgb(121, 183, 255);
 }
 </style>
