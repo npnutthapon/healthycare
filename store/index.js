@@ -1,5 +1,11 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
 export const state = () => ({
   login: '',
+  data: [],
   orderData: [],
   headers: [
     {
@@ -10,14 +16,13 @@ export const state = () => ({
     },
   ],
 })
+
 export const mutations = {
   login(state, val) {
     state.login = val
   },
-  input(state, { piece }) {
-    state.orderData.push({
-      piece,
-    })
+  data(state, val) {
+    state.data = val
   },
 }
 export const getters = {

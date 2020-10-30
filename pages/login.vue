@@ -32,7 +32,7 @@ export default {
       password: '',
       position: '',
       staffitem: '',
-      datas: '',
+      datas: [],
     }
   },
   methods: {
@@ -42,17 +42,21 @@ export default {
         .where('password', '==', this.password)
         .onSnapshot((querySnapshot) => {
           const staff = []
+          const datas = []
           querySnapshot.forEach((doc) => {
+            datas.push(doc.data())
             staff.push(doc.data().position)
             this.staffitem = staff.toString()
           })
+          this.datas = datas
+          console.log(this.datas)
           if (this.staffitem !== '') {
             this.$store.commit('login', this.staffitem)
-            this.$store.commit('name', this.datas)
+            this.$store.commit('data', this.datas)
             if (this.staffitem === 'admin') {
               this.$router.push('/admin')
             } else if (this.staffitem === 'user') {
-              this.$router.push('/admin')
+              this.$router.push('/booking')
             } else if (this.staffitem === '') {
               alert('Error')
               this.$refs.form.reset()

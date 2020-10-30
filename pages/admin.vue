@@ -1,8 +1,55 @@
 <template>
-  <v-data-table
-    :headers="this.$store.state.headers"
-    :items="this.$store.state.orderData"
-    :items-per-page="10"
-    class="elevation-1"
-  />
+  <v-card>
+    <v-card-title>
+      ข้อมูลการจอง
+      <v-spacer />
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      />
+    </v-card-title>
+    <v-data-table :headers="headers" :items="textList" :search="search" />
+  </v-card>
 </template>
+
+<script>
+import { db } from '~/plugins/firebaseConfig.js'
+export default {
+  data() {
+    return {
+      textList: [],
+      search: '',
+      headers: [
+        {
+          text: 'ชื่อ',
+          align: 'start',
+          sortable: false,
+          value: 'name',
+        },
+        { text: 'ชื่อสินค้า', value: 'productname' },
+        { text: 'จำนวน', value: 'piece' },
+        { text: 'ราคา', value: 'total' },
+      ],
+    }
+  },
+  created() {
+    this.getData()
+  },
+  methods: {
+    getData() {
+      db.collection('MyOrderHis')
+        .orderBy('timestamp')
+        .onSnapshot((querySnapshot) => {
+          const data = []
+          querySnapshot.forEach((doc) => {
+            data.push(doc.data())
+          })
+          this.textList = data
+        })
+    },
+  },
+}
+</script>

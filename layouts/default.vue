@@ -84,11 +84,6 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'pay',
-          to: '/pay',
-        },
-        {
-          icon: 'mdi-chart-bubble',
           title: 'admin',
           to: '/admin',
         },
@@ -96,6 +91,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'image',
           to: '/image',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'booking',
+          to: '/booking',
         },
       ],
       miniVariant: false,
