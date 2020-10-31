@@ -1,160 +1,154 @@
 <template>
-  <v-form @submit.prevent="addData">
-    <v-card>
-      <v-container>
-        <h1 align="center">Register</h1>
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="name"
-              :rules="rules"
-              hide-details="auto"
-              label="Firstname"
-              required
-              filled
-            />
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="lastname"
-              :rules="rules"
-              hide-details="auto"
-              label="Lastname"
-              required
-              filled
-            />
-          </v-col>
-        </v-row>
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="id"
-              :rules="rules"
-              hide-details="auto"
-              label="ID"
-              required
-              filled
-            />
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="password"
-              label="Password"
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-              :rules="rules"
-              :type="show1 ? 'text' : 'password'"
-              hide-details="auto"
-              required
-              filled
-              @click:append="show1 = !show1"
-            />
-          </v-col>
-        </v-row>
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="3">
-            <v-select
-              v-model="gender"
-              hide-details="auto"
-              :rules="[(v) => !!v || 'Item is required']"
-              label="Gender"
-              required
-              :items="items"
-              filled
-            />
-          </v-col>
-          <v-col cols="12" md="5">
-            <v-menu
-              v-model="menu"
-              hide-details="auto"
-              :close-on-content-click="false"
-              :nudge-right="40"
-              transition="scale-transition"
-              offset-y
-              min-width="290px"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  v-model="birthday"
-                  hide-details="auto"
-                  label="Birthday"
-                  prepend-icon="mdi-calendar"
-                  readonly
-                  v-bind="attrs"
-                  required
-                  filled
-                  v-on="on"
-                />
-              </template>
-              <v-date-picker v-model="birthday" @input="menu = false" />
-            </v-menu>
-          </v-col>
-        </v-row>
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="3">
-            <v-text-field
-              v-model="age"
-              :rules="rules"
-              hide-details="auto"
-              label="Age"
-              filled
-            />
-          </v-col>
-          <v-col cols="12" md="5">
-            <v-text-field
-              v-model="email"
-              :rules="rules"
-              hide-details="auto"
-              label="E-mail"
-              filled
-            />
-          </v-col>
-        </v-row>
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="telephone"
-              :rules="rules"
-              hide-details="auto"
-              label="Tel."
-              filled
-            />
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="address"
-              :rules="rules"
-              hide-details="auto"
-              label="Address"
-              filled
-            />
-          </v-col>
-        </v-row>
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="district"
-              :rules="rules"
-              hide-details="auto"
-              label="District"
-              filled
-            />
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="province"
-              :rules="rules"
-              hide-details="auto"
-              label="
+  <v-container>
+    <v-form @submit.prevent="addData">
+      <v-col cols="12" md="6">
+        <v-card class="mx-auto" color="#2C6975" dark max-width="800">
+          <h1 align="center">Register</h1>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="name"
+                :rules="rules"
+                hide-details="auto"
+                label="Firstname"
+                required
+              />
+            </v-col>
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="lastname"
+                :rules="rules"
+                hide-details="auto"
+                label="Lastname"
+                required
+              />
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="id"
+                :rules="rules"
+                hide-details="auto"
+                label="ID"
+                required
+              />
+            </v-col>
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="password"
+                label="Password"
+                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                :rules="rules"
+                :type="show1 ? 'text' : 'password'"
+                hide-details="auto"
+                required
+                @click:append="show1 = !show1"
+              />
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="4">
+              <v-select
+                v-model="gender"
+                hide-details="auto"
+                :rules="[(v) => !!v || 'Item is required']"
+                label="Gender"
+                required
+                :items="items"
+              />
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-menu
+                v-model="menu"
+                hide-details="auto"
+                :close-on-content-click="false"
+                :nudge-right="40"
+                transition="scale-transition"
+                offset-y
+                min-width="290px"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-text-field
+                    v-model="birthday"
+                    hide-details="auto"
+                    label="Birthday"
+                    prepend-icon="mdi-calendar"
+                    readonly
+                    v-bind="attrs"
+                    required
+                    v-on="on"
+                  />
+                </template>
+                <v-date-picker v-model="birthday" @input="menu = false" />
+              </v-menu>
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="4">
+              <v-text-field
+                v-model="age"
+                :rules="rules"
+                hide-details="auto"
+                label="Age"
+              />
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-text-field
+                v-model="email"
+                :rules="rules"
+                hide-details="auto"
+                label="E-mail"
+              />
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="telephone"
+                :rules="rules"
+                hide-details="auto"
+                label="Tel."
+              />
+            </v-col>
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="address"
+                :rules="rules"
+                hide-details="auto"
+                label="Address"
+              />
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="district"
+                :rules="rules"
+                hide-details="auto"
+                label="District"
+              />
+            </v-col>
+            <v-col cols="12" md="5">
+              <v-text-field
+                v-model="province"
+                :rules="rules"
+                hide-details="auto"
+                label="
 Province"
-              filled
-            />
-          </v-col>
-        </v-row>
-        <v-btn color="success" class="mr-4" @click="addData">Submit</v-btn>
-        <v-btn color="warning" class="mr-4" @click="reset"> Reset Form </v-btn>
-      </v-container>
-    </v-card>
-  </v-form>
+              />
+            </v-col>
+          </v-row>
+          <br />
+          <v-row align="center" justify="center"
+            ><v-btn color="success" class="mr-4" @click="addData"
+              >Submit</v-btn
+            ></v-row
+          >
+        </v-card>
+      </v-col>
+    </v-form>
+  </v-container>
 </template>
 
 <script>

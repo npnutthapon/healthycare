@@ -267,13 +267,6 @@ export default {
 }
 </script>
 <style>
-.theme--dark.v-application {
-  background-color: rgb(0, 0, 0);
-  background-attachment: fixed;
-  background-position: 100% 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .theme--dark.v-input input,
 .theme--dark.v-input textarea {
   color: rgb(255, 255, 255);

@@ -245,13 +245,6 @@ export default {
 </script>
 
 <style>
-.theme--dark.v-application {
-  background-image: url('https://cdn.discordapp.com/attachments/392353546332405763/763456399841034240/building-background.jpg');
-  background-attachment: fixed;
-  background-position: 100% 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .v-card {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;

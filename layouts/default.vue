@@ -6,7 +6,7 @@
       :clipped="clipped"
       fixed
       app
-      color="green"
+      color="#43978D"
     >
       <v-list>
         <v-list-item
@@ -25,7 +25,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app color="green">
+    <v-app-bar :clipped-left="clipped" fixed app color="#264D59">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
     <v-main>
@@ -43,7 +43,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :absolute="!fixed" app color="green">
+    <v-footer :absolute="!fixed" app color="#264D59">
       <span>HealthyCare</span>
     </v-footer>
   </v-app>

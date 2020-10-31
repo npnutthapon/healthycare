@@ -1,25 +1,29 @@
 <template>
   <div id="app">
     <v-container>
-      <v-card-title primary-title>
-        <h4>Login</h4>
-      </v-card-title>
-      <v-form>
-        <v-text-field
-          v-model="id"
-          name="Username"
-          label="Username"
-        ></v-text-field>
-        <v-text-field
-          v-model="password"
-          name="Password"
-          label="Password"
-          type="password"
-        ></v-text-field>
-        <v-card-actions>
-          <v-btn primary large block @click="check">Login</v-btn>
-        </v-card-actions>
-      </v-form>
+      <v-col cols="12" md="6">
+        <v-card class="mx-auto" color="#2C6975" dark max-width="1500">
+          <v-card-title primary-title>
+            <h4>Login</h4>
+          </v-card-title>
+          <v-form>
+            <v-text-field
+              v-model="id"
+              name="Username"
+              label="Username"
+            ></v-text-field>
+            <v-text-field
+              v-model="password"
+              name="Password"
+              label="Password"
+              type="password"
+            ></v-text-field>
+            <v-card-actions>
+              <v-btn color="success" @click="check">Login</v-btn>
+            </v-card-actions>
+          </v-form>
+        </v-card>
+      </v-col>
     </v-container>
   </div>
 </template>

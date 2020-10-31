@@ -26,3 +26,8 @@
 <script>
 export default {}
 </script>
+<style>
+.v-card {
+  background-color: honeydew;
+}
+</style>

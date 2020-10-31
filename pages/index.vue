@@ -8,111 +8,103 @@
       ></v-carousel-item>
     </v-carousel>
     <br />
-    <h1 align="center">Select</h1>
+    <h1 align="center" class="black--text">Select</h1>
     <br />
     <v-row justify="center" align="center">
-      <v-card class="mx-auto" max-width="300">
-        <nuxt-link to="/login">
-          <v-img
-            class="white--text align-end"
-            height="200px"
-            src="https://cdn.discordapp.com/attachments/746260527235334237/763380207955869716/shutterstock_428663329-1.jpg"
-          >
-            <v-card-title>Fitness</v-card-title>
-          </v-img>
+      <v-card class="mx-auto" color="#2C6975" dark max-width="300">
+        <v-img
+          class="white--text align-end"
+          height="200px"
+          src="https://cdn.discordapp.com/attachments/746260527235334237/763380207955869716/shutterstock_428663329-1.jpg"
+        >
+          <v-card-title>Fitness</v-card-title>
+        </v-img>
 
-          <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
+        <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
 
-          <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
+        <v-card-text class="text--primary">
+          <div>Whitehaven Beach</div>
 
-            <div>Whitsunday Island, Whitsunday Islands</div>
-          </v-card-text>
+          <div>Whitsunday Island, Whitsunday Islands</div>
+        </v-card-text>
 
-          <v-card-actions>
-            <v-btn color="orange" text> Share </v-btn>
+        <v-card-actions>
+          <v-btn color="orange" text> Share </v-btn>
 
-            <v-btn color="orange" text> Explore </v-btn>
-          </v-card-actions>
-        </nuxt-link>
+          <v-btn color="orange" text> Explore </v-btn>
+        </v-card-actions>
       </v-card>
       <v-space />
-      <v-card class="mx-auto" max-width="300">
-        <nuxt-link to="/login">
-          <v-img
-            class="white--text align-end"
-            height="200px"
-            src="https://cdn.discordapp.com/attachments/746260527235334237/763381155751264276/284feaf834ed9934.jpg"
-          >
-            <v-card-title>Dental Clinic</v-card-title>
-          </v-img>
+      <v-card class="mx-auto" color="#2C6975" max-width="300">
+        <v-img
+          class="white--text align-end"
+          height="200px"
+          src="https://cdn.discordapp.com/attachments/746260527235334237/763381155751264276/284feaf834ed9934.jpg"
+        >
+          <v-card-title>Dental Clinic</v-card-title>
+        </v-img>
 
-          <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
+        <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
 
-          <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
+        <v-card-text class="text--primary">
+          <div>Whitehaven Beach</div>
 
-            <div>Whitsunday Island, Whitsunday Islands</div>
-          </v-card-text>
+          <div>Whitsunday Island, Whitsunday Islands</div>
+        </v-card-text>
 
-          <v-card-actions>
-            <v-btn color="orange" text> Share </v-btn>
+        <v-card-actions>
+          <v-btn color="orange" text> Share </v-btn>
 
-            <v-btn color="orange" text> Explore </v-btn>
-          </v-card-actions>
-        </nuxt-link>
+          <v-btn color="orange" text> Explore </v-btn>
+        </v-card-actions>
         <v-space />
       </v-card>
-      <v-card class="mx-auto" max-width="300">
-        <nuxt-link to="/login">
-          <v-img
-            class="white--text align-end"
-            height="200px"
-            src="https://cdn.discordapp.com/attachments/746260527235334237/763382672348545084/PVL-Banner-face.png"
-          >
-            <v-card-title>Fitness</v-card-title>
-          </v-img>
+      <v-card class="mx-auto" color="#2C6975" max-width="300">
+        <v-img
+          class="white--text align-end"
+          height="200px"
+          src="https://cdn.discordapp.com/attachments/746260527235334237/763382672348545084/PVL-Banner-face.png"
+        >
+          <v-card-title>Fitness</v-card-title>
+        </v-img>
 
-          <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
+        <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
 
-          <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
+        <v-card-text class="text--primary">
+          <div>Whitehaven Beach</div>
 
-            <div>Whitsunday Island, Whitsunday Islands</div>
-          </v-card-text>
+          <div>Whitsunday Island, Whitsunday Islands</div>
+        </v-card-text>
 
-          <v-card-actions>
-            <v-btn color="orange" text> Share </v-btn>
+        <v-card-actions>
+          <v-btn color="orange" text> Share </v-btn>
 
-            <v-btn color="orange" text> Explore </v-btn>
-          </v-card-actions>
-        </nuxt-link>
+          <v-btn color="orange" text> Explore </v-btn>
+        </v-card-actions>
         <v-space />
       </v-card>
-      <v-card class="mx-auto" max-width="300">
-        <nuxt-link to="/login">
-          <v-img
-            class="white--text align-end"
-            height="200px"
-            src="https://cdn.discordapp.com/attachments/746260527235334237/763382678153723945/-pobpad.jpg"
-          >
-            <v-card-title>Fitness</v-card-title>
-          </v-img>
+      <v-card class="mx-auto" color="#2C6975" max-width="300">
+        <v-img
+          class="white--text align-end"
+          height="200px"
+          src="https://cdn.discordapp.com/attachments/746260527235334237/763382678153723945/-pobpad.jpg"
+        >
+          <v-card-title>Fitness</v-card-title>
+        </v-img>
 
-          <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
+        <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
 
-          <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
+        <v-card-text class="text--primary">
+          <div>Whitehaven Beach</div>
 
-            <div>Whitsunday Island, Whitsunday Islands</div>
-          </v-card-text>
+          <div>Whitsunday Island, Whitsunday Islands</div>
+        </v-card-text>
 
-          <v-card-actions>
-            <v-btn color="orange" text> Share </v-btn>
+        <v-card-actions>
+          <v-btn color="orange" text> Share </v-btn>
 
-            <v-btn color="orange" text> Explore </v-btn>
-          </v-card-actions>
-        </nuxt-link>
+          <v-btn color="orange" text> Explore </v-btn>
+        </v-card-actions>
         <v-space />
       </v-card>
     </v-row>
@@ -147,16 +139,10 @@ export default {
 </script>
 <style>
 .theme--dark.v-application {
-  background-color: rgb(177, 202, 255);
+  background-color: #bce6ff;
   background-attachment: fixed;
   background-position: 100% 100%;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.v-card {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 10px;
-  background-color: rgb(121, 183, 255);
 }
 </style>
