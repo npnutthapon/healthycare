@@ -1,76 +1,81 @@
 <template>
-  <v-container>
-    <v-form ref="form" v-model="valid" lazy-validation>
-      <v-text-field
-        v-model="name"
-        :counter="10"
-        :rules="nameRules"
-        label="Name"
-        required
-      ></v-text-field>
-
-      <v-text-field
-        v-model="id"
-        type="number"
-        :rules="idRules"
-        label="ID"
-        required
-      ></v-text-field>
-
-      <v-menu
-        v-model="menu"
-        hide-details="auto"
-        :close-on-content-click="false"
-        :nudge-right="40"
-        transition="scale-transition"
-        offset-y
-        min-width="290px"
+  <v-container
+    ><v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
+      <v-row justify="center" align="center"><h1>ชำระเงิน</h1></v-row>
+      <br />
+      <v-row justify="center" align="center"><h2>โอนผ่านธนาคาร</h2></v-row>
+      <br />
+      <v-row justify="center" align="center"
+        ><img
+          src="https://cdn.discordapp.com/attachments/746260527235334237/772792189469589544/Krungthai.jpg"
+          alt=""
+      /></v-row>
+      <br />
+      <v-row justify="center" align="center"
+        ><h2>เลขบัญชี : 375-089-1567</h2></v-row
       >
-        <template v-slot:activator="{ on, attrs }">
+      <v-row justify="center" align="center"><h2>ณัฐพล ปานแดง</h2></v-row>
+      <br />
+      <v-row align="center" justify="center"><h3>ข้อมูลสั่งซื้อ</h3></v-row>
+      <br />
+      <v-row align="center" justify="center">
+        <v-col cols="12" md="5">
           <v-text-field
-            v-model="date"
+            v-model="name"
+            :rules="rules"
             hide-details="auto"
-            label="Date"
-            prepend-icon="mdi-calendar"
-            readonly
-            v-bind="attrs"
+            label="Firstname"
             required
-            filled
-            v-on="on"
           />
-        </template>
-        <v-date-picker v-model="date" @input="menu = false" />
-      </v-menu>
+        </v-col>
+        <v-col cols="12" md="5">
+          <v-text-field
+            v-model="lastname"
+            :rules="rules"
+            hide-details="auto"
+            label="Lastname"
+            required
+          />
+        </v-col>
+      </v-row>
+      <v-row align="center" justify="center">
+        <v-col cols="12" md="10">
+          <v-text-field
+            v-model="addressOrder"
+            :rules="rules"
+            hide-details="auto"
+            label="Address"
+            required
+          />
+        </v-col>
+      </v-row>
+      <v-row align="center" justify="center">
+        <v-col cols="12" md="10">
+          <v-file-input
+            v-model="fileImage"
+            accept="image/*"
+            label="File input"
+          ></v-file-input>
+        </v-col>
+      </v-row>
+      <v-row align="center" justify="center"
+        ><v-btn color="success" class="mr-4" @click="submitform"
+          >Submit</v-btn
+        ></v-row
+      >
       <br />
-      <v-text-field
-        v-model="address"
-        :rules="addressRules"
-        label="Address"
-        required
-      ></v-text-field>
-      <br />
-      <template>
-        <v-file-input
-          v-model="fileImage"
-          accept="image/*"
-          label="File input"
-        ></v-file-input>
-      </template>
-      <br />
-      <v-btn color="success" class="mr-4" @click="submitform">Submit</v-btn>
-
-      <v-btn color="warning" class="mr-4" @click="reset"> Reset Form </v-btn>
-    </v-form>
-    <br />
-    <v-progress-circular
-      :rotate="-90"
-      :size="100"
-      :width="15"
-      :value="value"
-      color="primary"
-    >
-      {{ value }}
-    </v-progress-circular>
+      <v-row align="center" justify="center">
+        <v-progress-circular
+          :rotate="-90"
+          :size="100"
+          :width="15"
+          :value="value"
+          color="primary"
+        >
+          {{ value }}
+        </v-progress-circular>
+      </v-row>
+    </v-card>
   </v-container>
 </template>
 <script>
@@ -79,7 +84,7 @@ export default {
   data() {
     return {
       name: '',
-      id: '',
+      lastname: '',
       address: '',
       fileImage: null,
       date: new Date().toISOString().substr(0, 10),

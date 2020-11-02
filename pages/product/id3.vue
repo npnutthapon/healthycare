@@ -9,9 +9,7 @@
     <v-row>
       <v-col sm="5" />
       <v-col>
-        <h3 class="black--text">
-          Proflex Isolate Chocalate เวย์โปรตีน กลิ่นช็อคโกแลต ขนาด 700 กรัม
-        </h3>
+        <h3 class="black--text">Revive เซต3ขวด</h3>
       </v-col></v-row
     >
     <v-row>
@@ -19,24 +17,20 @@
         <v-col sm="1" />
         <v-col sm="4">
           <img
-            src="https://cdn.discordapp.com/attachments/746260527235334237/769500989320724480/SSP54950016.png"
+            src="https://cdn.discordapp.com/attachments/746260527235334237/772428838583664640/25-03-2020-3079.png"
         /></v-col>
         <v-col sm="7">
+          <h4 class="black--text">นวัตกรรมใหม่ล่าสุดจากสวิตเซอร์แลนด์</h4>
+          <h4 class="black--text">วิธีใช้ หลังทำความสะอาดเส้นผมและหนังศีรษะ</h4>
           <h4 class="black--text">
-            เป็นเวย์โปรตีนนำเข้าที่ได้รับรองคุณภาพจากองค์การอาหารและยา (อย.),
-          </h4>
-          <h4 class="black--text">สูตร Isolate ดูดซึมโปรตีนสูงสุด 90%++</h4>
-          <h4 class="black--text">
-            วิธีรับประทาน : ผสมโปรเฟลคซ์เวย์โปรตีน 2 ช้อนพูน
+            ฉีดเซรั่มบนหนังศีรษะขณะผมแห้งหมาด พร้อมนวดเบาๆ
           </h4>
           <h4 class="black--text">
-            (เทียบเท่าปริมาณ 32 กรัม) กับน้ำ นม หรือน้ำผมไม้
+            เพื่อช่วยให้เซรั่มเข้าฟื้นบำรุงถึงหนังศีรษะ
           </h4>
-          <h4 class="black--text">คนให้เข้ากัน หรือใช้เครื่องปั่นผลไม้</h4>
           <h4 class="black--text">
-            อาจเติม น้ำผึ้งหรือโยเกิร์ตเพื่อเพิ่มรสชาติ
+            และรากผมอย่างมีประสิทธิภาพ โดยไม่ต้องล้างออก
           </h4>
-          <h4 class="black--text">เลขที่ อย. : 20-1-22648-1-0022</h4>
           <br />
           <v-row>
             <v-col sm="2"
@@ -50,7 +44,7 @@
                 required
               ></v-text-field></v-col
           ></v-row>
-          <h3 class="black--text">Total : {{ piece * 2790 }} บาท</h3>
+          <h3 class="black--text">Total : {{ piece * 5970 }} บาท</h3>
           <br />
           <nuxt-link to="/product/pay">
             <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
@@ -71,8 +65,7 @@ export default {
     return {
       piece: 0,
       total: 0,
-      productname:
-        'Proflex Isolate Chocalate เวย์โปรตีน กลิ่นช็อคโกแลต ขนาด 700 กรัม',
+      productname: 'Revive เซต3ขวด',
       fileImage: null,
       date: new Date().toISOString().substr(0, 10),
       menu: false,
@@ -95,7 +88,7 @@ export default {
       // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
       const data = {
         piece: this.piece,
-        total: this.piece * 2790,
+        total: this.piece * 5970,
         productname: this.productname,
         name: this.$store.state.data[0].name,
         lastname: this.$store.state.data[0].lastname,

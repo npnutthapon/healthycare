@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export const state = () => ({
+  currentUser: [{ name: '' }, { lastname: '' }, { id: '' }, { password: '' }],
   login: '',
   data: [],
   orderData: [],

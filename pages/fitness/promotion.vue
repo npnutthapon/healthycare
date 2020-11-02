@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center" align="center">
-      <h1>Fitness</h1>
+      <h1 class="black--text">Fitness</h1>
     </v-row>
     <br />
     <longdo-map />
@@ -17,29 +17,136 @@
     </v-row>
     <br />
     <v-row justify="center" align="center">
-      <v-btn>สมัครสมาชิก</v-btn>
+      <v-btn color="info" @click="addDataFit">สมัครสมาชิก</v-btn>
     </v-row>
   </v-container>
 </template>
 <script>
+import firebase from 'firebase/app'
+import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
+      dialog: false,
+      name: '',
+      lastname: '',
+      id: '',
+      password: '',
+      age: '',
+      email: '',
+      telephone: '',
+      address: '',
+      district: '',
+      province: '',
+      position: 'User',
+      rules: [(value) => !!value || 'Required.'],
+      min: (v) => v.length >= 8 || 'Min 8 characters',
+      birthday: new Date().toISOString().substr(0, 10),
+      menu: false,
+      items: ['Male', 'Female'],
       itemss: [
         {
           src:
-            'https://cdn.discordapp.com/attachments/746260527235334237/763327654702350366/web_190123_0336.jpg',
+            'https://cdn.discordapp.com/attachments/746260527235334237/772480932753309716/pt_promotion_jan2019_1200x630.jpg',
         },
         {
           src:
-            'https://cdn.discordapp.com/attachments/746260527235334237/763327651850485770/26-2-62_-T.jpg',
+            'https://cdn.discordapp.com/attachments/746260527235334237/772480938391240734/promotion_9-9-sep-fitnessfirst-thailand-2-1200x630.jpg',
         },
         {
           src:
-            'https://cdn.discordapp.com/attachments/746260527235334237/763327650931408896/banner_serum-01-scaled.jpg',
+            'https://cdn.discordapp.com/attachments/746260527235334237/772480937383952384/img_20200713012444_1.jpg',
         },
       ],
     }
+  },
+  beforeCreate() {
+    if (!firebase.auth().currentUser) {
+      console.log('No Login')
+    } else {
+      console.log('Login ok')
+    }
+  },
+  created() {
+    this.getData()
+  },
+  methods: {
+    addDataFit() {
+      // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
+      const data = {
+        name: this.name,
+        lastname: this.lastname,
+        id: this.id,
+        password: this.password,
+        gender: this.gender,
+        birthday: this.birthday,
+        age: this.age,
+        email: this.email,
+        telephone: this.telephone,
+        address: this.address,
+        district: this.district,
+        province: this.province,
+        position: this.position,
+      }
+      db.collection('MyDataFit')
+        .doc('formdata')
+        .set(data)
+        .then(function () {
+          console.log('Document successfully written! -> MyForm')
+        })
+        .catch(function (error) {
+          console.error('Error writing document: ', error)
+        })
+      // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
+      const dataText = {
+        name: this.name,
+        lastname: this.lastname,
+        id: this.id,
+        password: this.password,
+        gender: this.gender,
+        birthday: this.birthday,
+        age: this.age,
+        email: this.email,
+        telephone: this.telephone,
+        address: this.address,
+        district: this.district,
+        province: this.province,
+        position: this.position,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      }
+      db.collection('MyDataRegisterFit')
+        .doc()
+        .set(dataText)
+        .then(function () {
+          console.log('Document successfully written! -> MyDataRegisterFit')
+        })
+        .catch(function (error) {
+          console.error('Error writing document: ', error)
+        })
+    },
+    reset() {},
+    getData() {
+      db.collection('MyDataFit')
+        .doc('formdata')
+        .onSnapshot((doc) => {
+          // console.log("Current data: ", doc.data());
+          const firebaseData = doc.data()
+          if (firebaseData) {
+            this.name = firebaseData.name
+            this.lastname = firebaseData.lastname
+            this.id = firebaseData.id
+            this.password = firebaseData.password
+            this.gender = firebaseData.geender
+            this.birthday = firebaseData.birthday
+            this.age = firebaseData.age
+            this.email = firebaseData.email
+            this.telephone = firebaseData.telephone
+            this.address = firebaseData.address
+            this.district = firebaseData.district
+            this.province = firebaseData.province
+          }
+        })
+    },
   },
 }
 </script>

@@ -6,26 +6,60 @@
       :clipped="clipped"
       fixed
       app
-      color="#43978D"
+      color="#68B2A0"
     >
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+        <v-list v-if="this.$store.state.login == 'User'">
+          <v-list-item
+            v-for="(item, i) in items1"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-list v-if="this.$store.state.login == 'Admin'">
+          <v-list-item
+            v-for="(item, i) in items2"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-list v-if="this.$store.state.login == ''">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app color="#264D59">
+    <v-app-bar :clipped-left="clipped" fixed app color="#94B447">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
     <v-main>
@@ -43,13 +77,14 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :absolute="!fixed" app color="#264D59">
+    <v-footer :absolute="!fixed" app color="#94B447">
       <span>HealthyCare</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
@@ -64,13 +99,20 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'register',
+          title: 'Register',
           to: '/register',
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'login',
+          title: 'Login',
           to: '/login',
+        },
+      ],
+      items1: [
+        {
+          icon: 'mdi-apps',
+          title: 'Welcome',
+          to: '/indexlogin',
         },
         {
           icon: 'mdi-chart-bubble',
@@ -79,23 +121,15 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'fitness',
+          title: 'store',
           to: '/fitness',
         },
+      ],
+      items2: [
         {
-          icon: 'mdi-chart-bubble',
-          title: 'admin',
+          icon: 'mdi-apps',
+          title: 'Welcome',
           to: '/admin',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'image',
-          to: '/image',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'booking',
-          to: '/booking',
         },
       ],
       miniVariant: false,
@@ -104,11 +138,41 @@ export default {
       title: 'Vuetify.js',
     }
   },
+  methods: {
+    validate() {
+      const id = this.id
+      const password = this.password
+      const name = this.name
+      const lastname = this.lastname
+      this.$store.commit('input', {
+        id,
+        password,
+        name,
+        lastname,
+      })
+    },
+    methods: {
+      logout() {
+        db.collection('MyRegister')
+          .where('email', '==', this.$store.getters.currentUser[0].email)
+          .where('password', '==', this.$store.getters.currentUser[0].password)
+          .onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // console.log(doc.data())
+              this.log = false
+              const out = null
+              this.$store.dispatch('logingOut', out)
+              console.log(out)
+            })
+          })
+      },
+    },
+  },
 }
 </script>
 <style>
 .theme--dark.v-application {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(175, 255, 138);
   background-attachment: fixed;
   background-position: 100% 100%;
   background-repeat: no-repeat;

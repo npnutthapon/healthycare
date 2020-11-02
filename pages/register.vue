@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <v-form @submit.prevent="addData">
-      <v-col cols="12" md="6">
-        <v-card class="mx-auto" color="#2C6975" dark max-width="800">
+    <v-row align="center" justify="center">
+      <v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
+        <v-form @submit.prevent="addData">
           <h1 align="center">Register</h1>
           <v-row align="center" justify="center">
             <v-col cols="12" md="5">
@@ -140,14 +140,55 @@ Province"
             </v-col>
           </v-row>
           <br />
-          <v-row align="center" justify="center"
-            ><v-btn color="success" class="mr-4" @click="addData"
-              >Submit</v-btn
-            ></v-row
+          <v-row align="center" justify="center">
+            <v-dialog v-model="dialog" width="500">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  color="success"
+                  dark
+                  v-bind="attrs"
+                  v-on="on"
+                  @click="addData"
+                >
+                  SUBMIT
+                </v-btn>
+              </template>
+
+              <v-card
+                v-if="(name != null) & (lastname != null) & (email != null)"
+              >
+                <v-card-title class="headline"> Successfully </v-card-title>
+                <v-card-actions>
+                  <v-spacer />
+                  <nuxt-link to="login">
+                    <v-btn
+                      color="success"
+                      text
+                      style="text-decoration: none"
+                      @click="
+                        dialog = false
+                        submit()
+                      "
+                    >
+                      ยืนยัน
+                    </v-btn>
+                  </nuxt-link>
+                </v-card-actions>
+              </v-card>
+              <v-card v-if="name == null || lastname == null || email == null">
+                <v-card-title class="headline"> ข้อมูลไม่ถูกต้อง </v-card-title>
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn color="error" text @click="dialog = false">
+                    ยืนยัน
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog></v-row
           >
-        </v-card>
-      </v-col>
-    </v-form>
+        </v-form>
+      </v-card>
+    </v-row>
   </v-container>
 </template>
 
@@ -157,18 +198,18 @@ import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
+      dialog: false,
       name: '',
       lastname: '',
       id: '',
       password: '',
-      gender: '',
       age: '',
       email: '',
       telephone: '',
       address: '',
       district: '',
       province: '',
-      position: 'user',
+      position: 'User',
       rules: [(value) => !!value || 'Required.'],
       min: (v) => v.length >= 8 || 'Min 8 characters',
       birthday: new Date().toISOString().substr(0, 10),
