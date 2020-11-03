@@ -63,7 +63,7 @@
       </v-row>
       <v-row align="center" justify="center"
         ><v-btn color="success" class="mr-4" @click="submitform"
-          >Submit</v-btn
+          ><v-icon>mdi-bitcoin</v-icon>P a y</v-btn
         ></v-row
       >
       <br />

@@ -94,24 +94,34 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-home',
+          title: 'W E L C O M E',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Register',
+          icon: 'mdi-account-plus',
+          title: 'R E G I S T E R',
           to: '/register',
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Login',
+          icon: 'mdi-key',
+          title: 'L O G I N',
           to: '/login',
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'pay',
+          icon: 'mdi-bitcoin',
+          title: 'P A Y',
           to: '/product/pay',
+        },
+        {
+          icon: 'mdi-headset',
+          title: 'A D M I N',
+          to: '/admin',
+        },
+        {
+          icon: 'mdi-shopping',
+          title: 'S H O P',
+          to: '/product',
         },
       ],
       items1: [

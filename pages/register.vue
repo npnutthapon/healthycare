@@ -160,7 +160,7 @@ Province"
                   v-on="on"
                   @click="addData"
                 >
-                  SUBMIT
+                  S U B M I T<v-icon>mdi-checkbox-marked-circle-outline</v-icon>
                 </v-btn>
               </template>
 

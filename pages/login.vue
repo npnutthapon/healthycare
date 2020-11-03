@@ -23,7 +23,11 @@
                 ></v-text-field>
                 <br />
                 <v-row align="center" justify="center"
-                  ><v-btn color="success" @click="login">Login</v-btn></v-row
+                  ><v-btn color="success" @click="login"
+                    >L O G I N<v-icon
+                      >mdi-checkbox-marked-circle-outline</v-icon
+                    ></v-btn
+                  ></v-row
                 >
               </v-form>
             </v-col>
