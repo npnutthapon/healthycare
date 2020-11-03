@@ -1,27 +1,5 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col />
-      <v-col
-        ><v-card color="#264D59"
-          ><v-row justify="center" align="center">
-            <v-col cols="12" md="8">
-              <h3>
-                Name : {{ this.$store.state.data[0].name }}
-                {{ this.$store.state.data[0].lastname }}
-              </h3>
-            </v-col>
-            <v-col cols="12" md="4">
-              <h3>
-                Position : {{ this.$store.state.data[0].position }}
-              </h3></v-col
-            ></v-row
-          >
-        </v-card></v-col
-      >
-      <v-col
-    /></v-row>
-    <br />
     <v-carousel hide-delimiters>
       <v-carousel-item
         v-for="(item, i) in itemss"
@@ -30,7 +8,7 @@
       ></v-carousel-item>
     </v-carousel>
     <br />
-    <h1 align="center" class="black--text">Select</h1>
+    <h1 align="center" class="black--text">S e l e c t</h1>
     <br />
     <v-row justify="center" align="center">
       <v-card class="mx-auto" color="#2C6975" dark max-width="300">

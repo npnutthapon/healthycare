@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" color="#9B9B9B" dark max-width="1200">
+    <v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
       <v-row>
-        <v-col sm="4" />
-        <v-col sm="8">
-          <h1 class="black--text">Store</h1>
+        <v-col sm="5" />
+        <v-col sm="7">
+          <h1 class="black--text">S t o r e</h1>
         </v-col>
       </v-row>
       <v-row>
@@ -17,9 +17,10 @@
         <v-row>
           <v-col sm="1" />
           <v-col sm="4">
-            <img
-              src="https://cdn.discordapp.com/attachments/746260527235334237/772428838583664640/25-03-2020-3079.png"
-          /></v-col>
+            <v-card class="mx-auto" color="white" dark max-width="310">
+              <img
+                src="https://cdn.discordapp.com/attachments/746260527235334237/772439608200790016/2c2d7677c299b18f.png" /></v-card
+          ></v-col>
           <v-col sm="7">
             <h4 class="black--text">
               เซรั่มเพื่อผิวแข็งแรง แก้ผิวบอบบาง ลดการไวสิว

@@ -1,7 +1,7 @@
 <template>
   <v-container
     ><v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
-      <v-row justify="center" align="center"><h1>ชำระเงิน</h1></v-row>
+      <v-row justify="center" align="center"><h1>P a y</h1></v-row>
       <br />
       <v-row justify="center" align="center"><h2>โอนผ่านธนาคาร</h2></v-row>
       <br />
@@ -22,6 +22,7 @@
         <v-col cols="12" md="5">
           <v-text-field
             v-model="name"
+            append-icon="mdi-account-box"
             :rules="rules"
             hide-details="auto"
             label="Firstname"
@@ -31,6 +32,7 @@
         <v-col cols="12" md="5">
           <v-text-field
             v-model="lastname"
+            append-icon="mdi-account-group"
             :rules="rules"
             hide-details="auto"
             label="Lastname"
@@ -42,6 +44,7 @@
         <v-col cols="12" md="10">
           <v-text-field
             v-model="addressOrder"
+            append-icon="mdi-home-variant"
             :rules="rules"
             hide-details="auto"
             label="Address"
@@ -70,7 +73,7 @@
           :size="100"
           :width="15"
           :value="value"
-          color="primary"
+          color="success"
         >
           {{ value }}
         </v-progress-circular>

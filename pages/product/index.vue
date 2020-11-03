@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center" align="center">
-      <h1 align="center" class="black--text">Store</h1>
+      <h1 align="center" class="black--text">S t o r e</h1>
     </v-row>
     <v-row justify="center" align="center">
       <v-col justify="center" align="center">

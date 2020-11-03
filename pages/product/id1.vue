@@ -1,14 +1,14 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" color="#9B9B9B" dark max-width="1200">
+    <v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
       <v-row>
-        <v-col sm="4" />
-        <v-col sm="8">
-          <h1 class="black--text">Store</h1>
+        <v-col sm="5" />
+        <v-col sm="7">
+          <h1 class="black--text">S t o r e</h1>
         </v-col>
       </v-row>
       <v-row>
-        <v-col sm="5" />
+        <v-col sm="3" />
         <v-col>
           <h3 class="black--text">
             Proflex Isolate Chocalate เวย์โปรตีน กลิ่นช็อคโกแลต ขนาด 700 กรัม
@@ -19,9 +19,10 @@
         <v-row>
           <v-col sm="1" />
           <v-col sm="4">
-            <img
-              src="https://cdn.discordapp.com/attachments/746260527235334237/769500989320724480/SSP54950016.png"
-          /></v-col>
+            <v-card class="mx-auto" color="white" dark max-width="325">
+              <img
+                src="https://cdn.discordapp.com/attachments/746260527235334237/769500989320724480/SSP54950016.png" /></v-card
+          ></v-col>
           <v-col sm="7">
             <h4 class="black--text">
               เป็นเวย์โปรตีนนำเข้าที่ได้รับรองคุณภาพจากองค์การอาหารและยา (อย.),

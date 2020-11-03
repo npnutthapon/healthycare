@@ -1,26 +1,6 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col />
-      <v-col
-        ><v-card color="#43978D"
-          ><v-row justify="center" align="center">
-            <v-col cols="12" md="8">
-              <h3>
-                Name : {{ this.$store.state.data[0].name }}
-                {{ this.$store.state.data[0].lastname }}
-              </h3>
-            </v-col>
-            <v-col cols="12" md="4">
-              <h3>
-                Position : {{ this.$store.state.data[0].position }}
-              </h3></v-col
-            ></v-row
-          >
-        </v-card></v-col
-      >
-      <v-col
-    /></v-row>
+    <v-row align="center" justify="center"><H1>A d m i n</H1></v-row>
     <v-card color="#264D59">
       <v-card-title>
         ข้อมูลการจอง

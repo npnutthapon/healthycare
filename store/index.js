@@ -4,10 +4,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export const state = () => ({
-  currentUser: [{ name: '' }, { lastname: '' }, { id: '' }, { password: '' }],
-  login: '',
-  data: [],
+  currentUser: [
+    { name: '' },
+    { lastname: '' },
+    { id: '' },
+    { password: '' },
+    { age: '' },
+  ],
   orderData: [],
+  log: false,
   headers: [
     {
       text: 'Piece',
@@ -16,12 +21,10 @@ export const state = () => ({
       value: 'piece',
     },
   ],
+  typeDuty: null,
 })
 
 export const mutations = {
-  login(state, val) {
-    state.login = val
-  },
   data(state, val) {
     state.data = val
   },

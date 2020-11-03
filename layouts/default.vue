@@ -9,23 +9,7 @@
       color="#68B2A0"
     >
       <v-list>
-        <v-list v-if="this.$store.state.login == 'User'">
-          <v-list-item
-            v-for="(item, i) in items1"
-            :key="i"
-            :to="item.to"
-            router
-            exact
-          >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title" />
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-        <v-list v-if="this.$store.state.login == 'Admin'">
+        <v-list v-if="typeDuty == 0">
           <v-list-item
             v-for="(item, i) in items2"
             :key="i"
@@ -41,7 +25,23 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
-        <v-list v-if="this.$store.state.login == ''">
+        <v-list v-if="typeDuty == 1">
+          <v-list-item
+            v-for="(item, i) in items1"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-list v-if="typeDuty == null">
           <v-list-item
             v-for="(item, i) in items"
             :key="i"
@@ -88,6 +88,7 @@ import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
+      typeDuty: null,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -106,6 +107,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Login',
           to: '/login',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'pay',
+          to: '/product/pay',
         },
       ],
       items1: [

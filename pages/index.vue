@@ -8,7 +8,7 @@
       ></v-carousel-item>
     </v-carousel>
     <br />
-    <h1 align="center" class="black--text">Select</h1>
+    <h1 align="center" class="black--text">S e l e c t</h1>
     <br />
     <v-row justify="center" align="center">
       <v-card class="mx-auto" color="#68B2A0" dark max-width="300">

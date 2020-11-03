@@ -3,11 +3,13 @@
     <v-row align="center" justify="center">
       <v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
         <v-form @submit.prevent="addData">
-          <h1 align="center">Register</h1>
+          <h1 align="center">R e g i s t e r</h1>
+          <br />
           <v-row align="center" justify="center">
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="name"
+                append-icon="mdi-account-box"
                 :rules="rules"
                 hide-details="auto"
                 label="Firstname"
@@ -17,6 +19,7 @@
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="lastname"
+                append-icon="mdi-account-group"
                 :rules="rules"
                 hide-details="auto"
                 label="Lastname"
@@ -28,6 +31,7 @@
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="id"
+                append-icon="mdi-account"
                 :rules="rules"
                 hide-details="auto"
                 label="ID"
@@ -88,6 +92,7 @@
             <v-col cols="12" md="4">
               <v-text-field
                 v-model="age"
+                append-icon="mdi-account-convert"
                 :rules="rules"
                 hide-details="auto"
                 label="Age"
@@ -96,6 +101,7 @@
             <v-col cols="12" md="6">
               <v-text-field
                 v-model="email"
+                append-icon="mdi-email"
                 :rules="rules"
                 hide-details="auto"
                 label="E-mail"
@@ -106,6 +112,7 @@
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="telephone"
+                append-icon="mdi-remote"
                 :rules="rules"
                 hide-details="auto"
                 label="Tel."
@@ -114,6 +121,7 @@
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="address"
+                append-icon="mdi-home"
                 :rules="rules"
                 hide-details="auto"
                 label="Address"
@@ -124,6 +132,7 @@
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="district"
+                append-icon="mdi-home-outline"
                 :rules="rules"
                 hide-details="auto"
                 label="District"
@@ -132,6 +141,7 @@
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="province"
+                append-icon="mdi-home-variant"
                 :rules="rules"
                 hide-details="auto"
                 label="
