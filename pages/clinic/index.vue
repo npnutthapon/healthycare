@@ -1,18 +1,18 @@
 <template>
   <v-container>
     <v-row justify="center" align="center">
-      <h1 class="black--text">ฟิตเนส</h1>
+      <h1 class="black--text">คลินิกทัตแพทย์</h1>
     </v-row>
     <br />
     <longdo-map />
     <br />
     <v-row justify="center" align="center" @click="fitness">
-      <v-btn color="info">ค้นหาฟิตเนสใกล้บ้าน</v-btn>
+      <v-btn color="info">ค้นหาคลินิกทำฟัน</v-btn>
     </v-row>
     <br />
     <v-row justify="center" align="center"
       ><h3>
-        <nuxt-link to="/fitness/promotion">{{ fit }}</nuxt-link>
+        <nuxt-link to="/clinic/promotion">{{ fit }}</nuxt-link>
       </h3></v-row
     >
   </v-container>
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     fitness() {
-      this.fit = 'ฟิตเนส ที่ใกล้คุณที่สุดคือ เฟรสฟิตเนส ระยะทาง 3 กิโลเมตร'
+      this.fit = 'คลินิกทำฟัน ที่ใกล้คุณที่สุดคือ พัทยาสไมล์ ระยะทาง 3 กิโลเมตร'
     },
   },
 }

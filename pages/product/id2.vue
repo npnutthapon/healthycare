@@ -1,54 +1,56 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col sm="4" />
-      <v-col sm="8">
-        <h1 class="black--text">Store</h1>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col sm="5" />
-      <v-col>
-        <h3 class="black--text">Haewon ยาสีฟันแฮวอน 2in1</h3>
-      </v-col></v-row
-    >
-    <v-row>
+    <v-card class="mx-auto" color="#9B9B9B" dark max-width="1200">
       <v-row>
-        <v-col sm="1" />
-        <v-col sm="4">
-          <img
-            src="https://cdn.discordapp.com/attachments/746260527235334237/772408221238558730/PicsArt_07-28-10.57.51.png"
-        /></v-col>
-        <v-col sm="7">
-          <h4 class="black--text">
-            วิธีการใช้ บีบยาสีฟัน ขนาดเท่าเม็ดถั่วเขียว
-          </h4>
-          <h4 class="black--text">ใช้แปรงได้ทั่วปาก 1 หลอด 80 g</h4>
-          <h4 class="black--text">ใช้ได้มากถึง 500 ครั้ง</h4>
-          <br />
-          <v-row>
-            <v-col sm="2"
-              ><v-text-field
-                v-model="piece"
-                class="black--text"
-                type="number"
-                :counter="10"
-                :rules="piece"
-                label="Piece"
-                required
-              ></v-text-field></v-col
-          ></v-row>
-          <h3 class="black--text">Total : {{ piece * 450 }} บาท</h3>
-          <br />
-          <nuxt-link to="/product/pay">
-            <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
-          </nuxt-link>
+        <v-col sm="4" />
+        <v-col sm="8">
+          <h1 class="black--text">Store</h1>
         </v-col>
       </v-row>
-    </v-row>
-    <v-row>
-      <v-col />
-    </v-row>
+      <v-row>
+        <v-col sm="5" />
+        <v-col>
+          <h3 class="black--text">Haewon ยาสีฟันแฮวอน 2in1</h3>
+        </v-col></v-row
+      >
+      <v-row>
+        <v-row>
+          <v-col sm="1" />
+          <v-col sm="4">
+            <img
+              src="https://cdn.discordapp.com/attachments/746260527235334237/772408221238558730/PicsArt_07-28-10.57.51.png"
+          /></v-col>
+          <v-col sm="7">
+            <h4 class="black--text">
+              วิธีการใช้ บีบยาสีฟัน ขนาดเท่าเม็ดถั่วเขียว
+            </h4>
+            <h4 class="black--text">ใช้แปรงได้ทั่วปาก 1 หลอด 80 g</h4>
+            <h4 class="black--text">ใช้ได้มากถึง 500 ครั้ง</h4>
+            <br />
+            <v-row>
+              <v-col sm="2"
+                ><v-text-field
+                  v-model="piece"
+                  class="black--text"
+                  type="number"
+                  :counter="10"
+                  :rules="piece"
+                  label="Piece"
+                  required
+                ></v-text-field></v-col
+            ></v-row>
+            <h3 class="black--text">Total : {{ piece * 450 }} บาท</h3>
+            <br />
+            <nuxt-link to="/product/pay">
+              <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
+            </nuxt-link>
+          </v-col>
+        </v-row>
+      </v-row>
+      <v-row>
+        <v-col />
+      </v-row>
+    </v-card>
   </v-container>
 </template>
 <script>

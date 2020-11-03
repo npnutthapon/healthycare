@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center" align="center">
-      <h1 class="black--text">ฟิตเนส</h1>
+      <h1 class="black--text">คลินิกทัตแพทย์</h1>
     </v-row>
     <br />
     <longdo-map />
@@ -47,15 +47,11 @@ export default {
       itemss: [
         {
           src:
-            'https://cdn.discordapp.com/attachments/746260527235334237/772480932753309716/pt_promotion_jan2019_1200x630.jpg',
+            'https://cdn.discordapp.com/attachments/746260527235334237/763327651850485770/26-2-62_-T.jpg',
         },
         {
           src:
-            'https://cdn.discordapp.com/attachments/746260527235334237/772480938391240734/promotion_9-9-sep-fitnessfirst-thailand-2-1200x630.jpg',
-        },
-        {
-          src:
-            'https://cdn.discordapp.com/attachments/746260527235334237/772480937383952384/img_20200713012444_1.jpg',
+            'https://cdn.discordapp.com/attachments/746260527235334237/772942801175314432/-THAI__0005.jpg',
         },
       ],
     }

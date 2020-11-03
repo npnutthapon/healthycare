@@ -1,66 +1,68 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col sm="4" />
-      <v-col sm="8">
-        <h1 class="black--text">Store</h1>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col sm="5" />
-      <v-col>
-        <h3 class="black--text">
-          Proflex Isolate Chocalate เวย์โปรตีน กลิ่นช็อคโกแลต ขนาด 700 กรัม
-        </h3>
-      </v-col></v-row
-    >
-    <v-row>
+    <v-card class="mx-auto" color="#9B9B9B" dark max-width="1200">
       <v-row>
-        <v-col sm="1" />
-        <v-col sm="4">
-          <img
-            src="https://cdn.discordapp.com/attachments/746260527235334237/769500989320724480/SSP54950016.png"
-        /></v-col>
-        <v-col sm="7">
-          <h4 class="black--text">
-            เป็นเวย์โปรตีนนำเข้าที่ได้รับรองคุณภาพจากองค์การอาหารและยา (อย.),
-          </h4>
-          <h4 class="black--text">สูตร Isolate ดูดซึมโปรตีนสูงสุด 90%++</h4>
-          <h4 class="black--text">
-            วิธีรับประทาน : ผสมโปรเฟลคซ์เวย์โปรตีน 2 ช้อนพูน
-          </h4>
-          <h4 class="black--text">
-            (เทียบเท่าปริมาณ 32 กรัม) กับน้ำ นม หรือน้ำผมไม้
-          </h4>
-          <h4 class="black--text">คนให้เข้ากัน หรือใช้เครื่องปั่นผลไม้</h4>
-          <h4 class="black--text">
-            อาจเติม น้ำผึ้งหรือโยเกิร์ตเพื่อเพิ่มรสชาติ
-          </h4>
-          <h4 class="black--text">เลขที่ อย. : 20-1-22648-1-0022</h4>
-          <br />
-          <v-row>
-            <v-col sm="2"
-              ><v-text-field
-                v-model="piece"
-                class="black--text"
-                type="number"
-                :counter="10"
-                :rules="piece"
-                label="Piece"
-                required
-              ></v-text-field></v-col
-          ></v-row>
-          <h3 class="black--text">Total : {{ piece * 2790 }} บาท</h3>
-          <br />
-          <nuxt-link to="/product/pay">
-            <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
-          </nuxt-link>
+        <v-col sm="4" />
+        <v-col sm="8">
+          <h1 class="black--text">Store</h1>
         </v-col>
       </v-row>
-    </v-row>
-    <v-row>
-      <v-col />
-    </v-row>
+      <v-row>
+        <v-col sm="5" />
+        <v-col>
+          <h3 class="black--text">
+            Proflex Isolate Chocalate เวย์โปรตีน กลิ่นช็อคโกแลต ขนาด 700 กรัม
+          </h3>
+        </v-col></v-row
+      >
+      <v-row>
+        <v-row>
+          <v-col sm="1" />
+          <v-col sm="4">
+            <img
+              src="https://cdn.discordapp.com/attachments/746260527235334237/769500989320724480/SSP54950016.png"
+          /></v-col>
+          <v-col sm="7">
+            <h4 class="black--text">
+              เป็นเวย์โปรตีนนำเข้าที่ได้รับรองคุณภาพจากองค์การอาหารและยา (อย.),
+            </h4>
+            <h4 class="black--text">สูตร Isolate ดูดซึมโปรตีนสูงสุด 90%++</h4>
+            <h4 class="black--text">
+              วิธีรับประทาน : ผสมโปรเฟลคซ์เวย์โปรตีน 2 ช้อนพูน
+            </h4>
+            <h4 class="black--text">
+              (เทียบเท่าปริมาณ 32 กรัม) กับน้ำ นม หรือน้ำผมไม้
+            </h4>
+            <h4 class="black--text">คนให้เข้ากัน หรือใช้เครื่องปั่นผลไม้</h4>
+            <h4 class="black--text">
+              อาจเติม น้ำผึ้งหรือโยเกิร์ตเพื่อเพิ่มรสชาติ
+            </h4>
+            <h4 class="black--text">เลขที่ อย. : 20-1-22648-1-0022</h4>
+            <br />
+            <v-row>
+              <v-col sm="2"
+                ><v-text-field
+                  v-model="piece"
+                  class="black--text"
+                  type="number"
+                  :counter="10"
+                  :rules="piece"
+                  label="Piece"
+                  required
+                ></v-text-field></v-col
+            ></v-row>
+            <h3 class="black--text">Total : {{ piece * 2790 }} บาท</h3>
+            <br />
+            <nuxt-link to="/product/pay">
+              <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
+            </nuxt-link>
+          </v-col>
+        </v-row>
+      </v-row>
+      <v-row>
+        <v-col />
+      </v-row>
+    </v-card>
   </v-container>
 </template>
 <script>

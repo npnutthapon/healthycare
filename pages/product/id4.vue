@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
+    <v-card class="mx-auto" color="#9B9B9B" dark max-width="1200">
       <v-row>
         <v-col sm="4" />
         <v-col sm="8">

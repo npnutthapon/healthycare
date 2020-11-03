@@ -34,14 +34,15 @@
     <br />
     <v-row justify="center" align="center">
       <v-card class="mx-auto" color="#2C6975" dark max-width="300">
-        <v-img
-          class="white--text align-end"
-          height="200px"
-          src="https://cdn.discordapp.com/attachments/746260527235334237/763380207955869716/shutterstock_428663329-1.jpg"
-        >
-          <v-card-title>Fitness</v-card-title>
-        </v-img>
-
+        <nuxt-link to="/fitness">
+          <v-img
+            class="white--text align-end"
+            height="200px"
+            src="https://cdn.discordapp.com/attachments/746260527235334237/763380207955869716/shutterstock_428663329-1.jpg"
+          >
+            <v-card-title>Fitness</v-card-title>
+          </v-img>
+        </nuxt-link>
         <v-card-subtitle class="pb-0"> ฟิตเนส </v-card-subtitle>
 
         <v-card-text class="text--primary">
@@ -50,14 +51,15 @@
       </v-card>
       <v-space />
       <v-card class="mx-auto" color="#2C6975" max-width="300">
-        <v-img
-          class="white--text align-end"
-          height="200px"
-          src="https://cdn.discordapp.com/attachments/746260527235334237/763381155751264276/284feaf834ed9934.jpg"
-        >
-          <v-card-title>Dental Clinic</v-card-title>
-        </v-img>
-
+        <nuxt-link to="/clinic">
+          <v-img
+            class="white--text align-end"
+            height="200px"
+            src="https://cdn.discordapp.com/attachments/746260527235334237/763381155751264276/284feaf834ed9934.jpg"
+          >
+            <v-card-title>Dental Clinic</v-card-title>
+          </v-img>
+        </nuxt-link>
         <v-card-subtitle class="pb-0"> คลินิกทัตแพทย์ </v-card-subtitle>
 
         <v-card-text class="text--primary">
@@ -66,14 +68,15 @@
         <v-space />
       </v-card>
       <v-card class="mx-auto" color="#2C6975" max-width="300">
-        <v-img
-          class="white--text align-end"
-          height="200px"
-          src="https://cdn.discordapp.com/attachments/746260527235334237/763382672348545084/PVL-Banner-face.png"
-        >
-          <v-card-title>Dermatology Clinic</v-card-title>
-        </v-img>
-
+        <nuxt-link to="/product">
+          <v-img
+            class="white--text align-end"
+            height="200px"
+            src="https://cdn.discordapp.com/attachments/746260527235334237/763382672348545084/PVL-Banner-face.png"
+          >
+            <v-card-title>Dermatology Clinic</v-card-title>
+          </v-img>
+        </nuxt-link>
         <v-card-subtitle class="pb-0">คลินิกผิวพรรณ</v-card-subtitle>
 
         <v-card-text class="text--primary">
@@ -82,14 +85,15 @@
         <v-space />
       </v-card>
       <v-card class="mx-auto" color="#2C6975" max-width="300">
-        <v-img
-          class="white--text align-end"
-          height="200px"
-          src="https://cdn.discordapp.com/attachments/746260527235334237/763382678153723945/-pobpad.jpg"
-        >
-          <v-card-title>Scalp Clinic</v-card-title>
-        </v-img>
-
+        <nuxt-link to="/product">
+          <v-img
+            class="white--text align-end"
+            height="200px"
+            src="https://cdn.discordapp.com/attachments/746260527235334237/763382678153723945/-pobpad.jpg"
+          >
+            <v-card-title>Scalp Clinic</v-card-title>
+          </v-img>
+        </nuxt-link>
         <v-card-subtitle class="pb-0">คลินิกหนังศรีษะ</v-card-subtitle>
 
         <v-card-text class="text--primary">
