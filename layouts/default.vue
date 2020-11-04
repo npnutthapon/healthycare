@@ -127,6 +127,11 @@ export default {
           title: 'L O G I N',
           to: '/login',
         },
+        {
+          icon: 'mdi-key',
+          title: 'L O G I N',
+          to: '/product/id1',
+        },
       ],
       items1: [
         {

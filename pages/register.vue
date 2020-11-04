@@ -153,39 +153,57 @@ Province"
           <v-row align="center" justify="center">
             <v-dialog v-model="dialog" width="500">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="success"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-                  @click="addData"
-                >
-                  S U B M I T<v-icon>mdi-checkbox-marked-circle-outline</v-icon>
+                <v-btn color="primary" dark v-bind="attrs" v-on="on">
+                  SUBMIT
                 </v-btn>
               </template>
 
               <v-card
-                v-if="(name != null) & (lastname != null) & (email != null)"
+                v-if="
+                  (name != null) &
+                  (lastname != null) &
+                  (id != null) &
+                  (password != null) &
+                  (age != null) &
+                  (gender != null) &
+                  (email != null) &
+                  (telephone != null) &
+                  (address != null) &
+                  (district != null) &
+                  (province != null)
+                "
               >
                 <v-card-title class="headline"> Successfully </v-card-title>
                 <v-card-actions>
                   <v-spacer />
-                  <nuxt-link to="login">
-                    <v-btn
-                      color="success"
-                      text
-                      style="text-decoration: none"
-                      @click="
-                        dialog = false
-                        submit()
-                      "
-                    >
-                      ยืนยัน
-                    </v-btn>
-                  </nuxt-link>
+                  <v-btn
+                    color="primary"
+                    style="text-decoration: none"
+                    text
+                    @click="
+                      dialog = false
+                      addData()
+                    "
+                  >
+                    ยืนยัน
+                  </v-btn>
                 </v-card-actions>
               </v-card>
-              <v-card v-if="name == null || lastname == null || email == null">
+              <v-card
+                v-if="
+                  name == null ||
+                  lastname == null ||
+                  id == null ||
+                  password == null ||
+                  age == null ||
+                  gender == null ||
+                  email == null ||
+                  telephone == null ||
+                  address == null ||
+                  district == null ||
+                  province == null
+                "
+              >
                 <v-card-title class="headline"> ข้อมูลไม่ถูกต้อง </v-card-title>
                 <v-card-actions>
                   <v-spacer />
@@ -214,6 +232,7 @@ export default {
       id: '',
       password: '',
       age: '',
+      gender: '',
       email: '',
       telephone: '',
       address: '',
@@ -233,9 +252,6 @@ export default {
     } else {
       console.log('Login ok')
     }
-  },
-  created() {
-    this.getData()
   },
   methods: {
     addData() {
@@ -281,38 +297,22 @@ export default {
         position: this.position,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
-      db.collection('MyDataRegister')
-        .doc()
-        .set(dataText)
-        .then(function () {
-          console.log('Document successfully written! -> MyDataRegister')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
+      db.collection('MyDataRegister').doc().set(dataText)
+      this.reset()
+      this.$router.push('/login')
     },
-    reset() {},
-    getData() {
-      db.collection('MyForm')
-        .doc('formdata')
-        .onSnapshot((doc) => {
-          // console.log("Current data: ", doc.data());
-          const firebaseData = doc.data()
-          if (firebaseData) {
-            this.name = firebaseData.name
-            this.lastname = firebaseData.lastname
-            this.id = firebaseData.id
-            this.password = firebaseData.password
-            this.gender = firebaseData.geender
-            this.birthday = firebaseData.birthday
-            this.age = firebaseData.age
-            this.email = firebaseData.email
-            this.telephone = firebaseData.telephone
-            this.address = firebaseData.address
-            this.district = firebaseData.district
-            this.province = firebaseData.province
-          }
-        })
+    reset() {
+      this.name = ''
+      this.lastname = ''
+      this.id = ''
+      this.password = ''
+      this.age = ''
+      this.gender = ''
+      this.email = ''
+      this.telephone = ''
+      this.address = ''
+      this.district = ''
+      this.province = ''
     },
   },
 }

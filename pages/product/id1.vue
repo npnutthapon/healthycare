@@ -46,6 +46,8 @@
                   v-model="piece"
                   class="black--text"
                   type="number"
+                  min="1"
+                  max="10"
                   :counter="10"
                   :rules="piece"
                   label="Piece"
@@ -54,9 +56,7 @@
             ></v-row>
             <h3 class="black--text">Total : {{ piece * 2790 }} บาท</h3>
             <br />
-            <nuxt-link to="/product/pay">
-              <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
-            </nuxt-link>
+            <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
           </v-col>
         </v-row>
       </v-row>
@@ -72,7 +72,7 @@ import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
-      piece: 0,
+      piece: 1,
       total: 0,
       productname:
         'Proflex Isolate Chocalate เวย์โปรตีน กลิ่นช็อคโกแลต ขนาด 700 กรัม',
@@ -90,36 +90,14 @@ export default {
       console.log('Login ok')
     }
   },
-  created() {
-    this.getData()
-  },
   methods: {
     orderData() {
-      // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
-      const data = {
-        piece: this.piece,
-        total: this.piece * 2790,
-        productname: this.productname,
-        name: this.$store.state.allData[0].name,
-        lastname: this.$store.state.allData[0].lastname,
-      }
-      db.collection('MyOrder')
-        .doc('formdata')
-        .set(data)
-        .then(function () {
-          console.log('Document successfully written! -> MyOrder')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
-
-      // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
       const dataOrder = {
         piece: this.piece,
         total: this.piece * 2790,
         productname: this.productname,
-        name: this.$store.state.allData[0].name,
-        lastname: this.$store.state.allData[0].name,
+        name: this.$store.getters.Data[0].name,
+        lastname: this.$store.getters.Data[0].lastname,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
       db.collection('MyOrderHis')
@@ -131,21 +109,8 @@ export default {
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
-    },
-    reset() {},
-    getData() {
-      db.collection('MyOrder')
-        .doc('formdata')
-        .onSnapshot((doc) => {
-          // console.log("Current data: ", doc.data());
-          const firebaseData = doc.data()
-          if (firebaseData) {
-            this.piece = firebaseData.piece
-            this.total = firebaseData.total
-            this.name = firebaseData.name
-            this.lastnamename = firebaseData.lastname
-          }
-        })
+      alert('สั่งสินค้าเรียบร้อย')
+      this.$router.push('/product/pay')
     },
   },
 }
