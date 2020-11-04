@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-row align="center" justify="center"><H1>A d m i n</H1></v-row>
+    <br />
     <v-card color="#264D59">
       <v-card-title>
         ข้อมูลการจอง

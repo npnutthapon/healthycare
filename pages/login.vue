@@ -41,6 +41,7 @@
 import { db } from '~/plugins/firebaseConfig.js'
 import { store } from '~/store/index'
 export default {
+  store,
   data() {
     return {
       log: false,
@@ -61,11 +62,11 @@ export default {
             data.push(doc.data())
             // console.log(doc.data())
             this.log = true
-            this.typeDuty = 0
+            this.typeDuty = 1
             this.$router.push('/indexlogin')
             const payload = data
             this.$store.dispatch('setUser', payload)
-            // console.log(payload)
+            console.log(payload[0])
           })
         })
       db.collection('Employee')
@@ -77,37 +78,11 @@ export default {
             data.push(doc.data())
             // console.log(doc.data())
             this.log = true
-            this.typeDuty = 1
+            this.typeDuty = 2
             this.$router.push('/admin')
             const payload = data
-            this.$store.dispatch('setUser', payload)
-            // console.log(payload)
-          })
-        })
-    },
-    logout() {
-      db.collection('MyDataRegister')
-        .where('id', '==', this.$store.getters.currentUser[0].id)
-        .where('password', '==', this.$store.getters.currentUser[0].password)
-        .onSnapshot((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // console.log(doc.data())
-            this.log = false
-            const out = null
-            this.$store.dispatch('logingOut', out)
-            // console.log(out)
-          })
-        })
-      db.collection('Employee')
-        .where('id', '==', this.user)
-        .where('password', '==', this.pass)
-        .onSnapshot((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // console.log(doc.data())
-            this.log = false
-            const out = null
-            this.$store.dispatch('logingOut', out)
-            // console.log(out)
+            this.$store.dispatch('setAdmin', payload)
+            console.log(payload[0])
           })
         })
     },
