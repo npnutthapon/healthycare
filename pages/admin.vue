@@ -71,7 +71,6 @@ export default {
         { text: 'ชื่อสินค้า', value: 'productname' },
         { text: 'จำนวน', value: 'piece' },
         { text: 'ราคา', value: 'total' },
-        { text: 'เวลา', value: 'timestamp' },
       ],
       Dataregister: [],
       search1: '',
