@@ -7,6 +7,7 @@
       <br />
       <v-row justify="center" align="center"
         ><img
+          class="mx-auto"
           src="https://cdn.discordapp.com/attachments/746260527235334237/772792189469589544/Krungthai.jpg"
           alt=""
       /></v-row>
@@ -101,7 +102,7 @@ export default {
         this.name !== '' &&
         this.lastname !== '' &&
         this.address !== '' &&
-        this.fileImage !== null
+        this.fileImage !== ''
       ) {
         const dataText = {
           name: this.name,
@@ -178,7 +179,7 @@ export default {
           }
         )
       } else {
-        alert('เสร็จสิ้น')
+        alert('กรอกข้อมูลให้ครบ')
       }
     },
   },

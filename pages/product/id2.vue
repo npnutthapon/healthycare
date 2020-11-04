@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
+    <v-card class="mx-auto" color="#68B2A0" dark max-width="1000">
       <v-row>
         <v-col sm="5" />
         <v-col sm="7">
@@ -17,10 +17,10 @@
         <v-row>
           <v-col sm="1" />
           <v-col sm="4">
-            <v-card class="mx-auto" color="white" dark max-width="300">
-              <img
-                src="https://cdn.discordapp.com/attachments/746260527235334237/772408221238558730/PicsArt_07-28-10.57.51.png" /></v-card
-          ></v-col>
+            <img
+              class="mx-auto"
+              src="https://cdn.discordapp.com/attachments/746260527235334237/772408221238558730/PicsArt_07-28-10.57.51.png"
+          /></v-col>
           <v-col sm="7">
             <h4 class="black--text">
               วิธีการใช้ บีบยาสีฟัน ขนาดเท่าเม็ดถั่วเขียว
@@ -34,9 +34,9 @@
                   v-model="piece"
                   class="black--text"
                   type="number"
-                  :counter="10"
                   min="1"
                   max="10"
+                  :counter="10"
                   :rules="piece"
                   label="Piece"
                   required
@@ -44,7 +44,9 @@
             ></v-row>
             <h3 class="black--text">Total : {{ piece * 450 }} บาท</h3>
             <br />
-            <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
+            <v-btn color="success" class="mr-4" @click="orderData"
+              ><v-icon>mdi-bitcoin</v-icon>Buy</v-btn
+            >
           </v-col>
         </v-row>
       </v-row>
@@ -69,6 +71,7 @@ export default {
       value: 0,
     }
   },
+
   beforeCreate() {
     if (!firebase.auth().currentUser) {
       console.log('No Login')

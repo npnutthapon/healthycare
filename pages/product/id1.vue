@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" color="#68B2A0" dark max-width="1200">
+    <v-card class="mx-auto" color="#68B2A0" dark max-width="1000">
       <v-row>
         <v-col sm="5" />
         <v-col sm="7">
@@ -20,11 +20,12 @@
           <v-col sm="1" />
           <v-col sm="3">
             <img
+              class="mx-auto"
               src="https://cdn.discordapp.com/attachments/746260527235334237/773567023204270130/SSP54950016.png"
           /></v-col>
           <v-col sm="7">
             <h4 class="black--text">
-              เป็นเวย์โปรตีนนำเข้าที่ได้รับรองคุณภาพจากองค์การอาหารและยา (อย.),
+              เป็นเวย์โปรตีนนำเข้าที่ได้รับรองคุณภาพจากองค์การอาหารและยา (อย.)
             </h4>
             <h4 class="black--text">สูตร Isolate ดูดซึมโปรตีนสูงสุด 90%++</h4>
             <h4 class="black--text">
@@ -54,7 +55,9 @@
             ></v-row>
             <h3 class="black--text">Total : {{ piece * 2790 }} บาท</h3>
             <br />
-            <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
+            <v-btn color="success" class="mr-4" @click="orderData"
+              ><v-icon>mdi-bitcoin</v-icon>Buy</v-btn
+            >
           </v-col>
         </v-row>
       </v-row>
