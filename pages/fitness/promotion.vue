@@ -84,28 +84,6 @@ export default {
   },
   methods: {
     addDataFit() {
-      // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
-      const data = {
-        name: this.name,
-        lastname: this.lastname,
-        gender: this.gender,
-        birthday: this.birthday,
-        age: this.age,
-        email: this.email,
-        telephone: this.telephone,
-        address: this.address,
-        district: this.district,
-        province: this.province,
-      }
-      db.collection('MyDataFit')
-        .doc('formdata')
-        .set(data)
-        .then(function () {
-          console.log('Document successfully written! -> MyDataFit')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
       // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
       const dataText = {
         name: this.name,
@@ -134,7 +112,7 @@ export default {
     reset() {},
     getData() {
       db.collection('MyDataFit')
-        .doc('formdata')
+        .doc()
         .onSnapshot((doc) => {
           // console.log("Current data: ", doc.data());
           const firebaseData = doc.data()

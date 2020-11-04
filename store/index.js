@@ -29,6 +29,7 @@ export const store = new Vuex.Store({
       },
     ],
     log: false,
+    logreg: false,
     typeDuty: 0,
     headers: [
       {
@@ -60,6 +61,16 @@ export const store = new Vuex.Store({
       state.log = false
       state.Data = out
       state.typeDuty = 0
+      state.Data.name = ''
+      state.Data.lastname = ''
+      state.Data.birthday = ''
+      state.Data.gender = ''
+      state.Data.age = ''
+      state.Data.email = ''
+      state.Data.telephone = ''
+      state.Data.address = ''
+      state.Data.district = ''
+      state.Data.province = ''
     },
     data(state, val) {
       state.data = val

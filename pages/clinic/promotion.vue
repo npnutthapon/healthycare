@@ -94,7 +94,7 @@ export default {
         province: this.province,
       }
       db.collection('MyDataDen')
-        .doc('formdata')
+        .doc()
         .set(data)
         .then(function () {
           console.log('Document successfully written! -> MyDataDen')
@@ -130,7 +130,7 @@ export default {
     reset() {},
     getData() {
       db.collection('MyDataDen')
-        .doc('formdata')
+        .doc()
         .onSnapshot((doc) => {
           // console.log("Current data: ", doc.data());
           const firebaseData = doc.data()

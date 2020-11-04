@@ -180,8 +180,8 @@ export default {
       })
     },
     logout() {
-      const out = null
-      this.$store.dispatch('logingOut', out)
+      const out = ''
+      this.$store.dispatch('logingOut', { out })
       this.$router.push('/')
       console.log(out)
     },
