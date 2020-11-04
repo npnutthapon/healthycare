@@ -178,7 +178,7 @@ export default {
           }
         )
       } else {
-        alert('แอหกด')
+        alert('เสร็จสิ้น')
       }
     },
   },

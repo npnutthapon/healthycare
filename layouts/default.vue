@@ -127,11 +127,6 @@ export default {
           title: 'L O G I N',
           to: '/login',
         },
-        {
-          icon: 'mdi-key',
-          title: 'L O G I N',
-          to: '/product/id1',
-        },
       ],
       items1: [
         {
@@ -143,11 +138,6 @@ export default {
           icon: 'mdi-shopping',
           title: 'S H O P',
           to: '/product',
-        },
-        {
-          icon: 'mdi-shopping',
-          title: 'S H O P',
-          to: '/fitness/promotion',
         },
       ],
       items2: [

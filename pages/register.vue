@@ -153,8 +153,8 @@ Province"
           <v-row align="center" justify="center">
             <v-dialog v-model="dialog" width="500">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn color="primary" dark v-bind="attrs" v-on="on">
-                  SUBMIT
+                <v-btn color="success" dark v-bind="attrs" v-on="on">
+                  S U B M I T<v-icon>mdi-checkbox-marked-circle-outline</v-icon>
                 </v-btn>
               </template>
 
