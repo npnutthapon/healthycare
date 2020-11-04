@@ -92,6 +92,7 @@
             <v-col cols="12" md="4">
               <v-text-field
                 v-model="age"
+                type="number"
                 append-icon="mdi-account-convert"
                 :rules="rules"
                 hide-details="auto"
@@ -112,6 +113,7 @@
             <v-col cols="12" md="5">
               <v-text-field
                 v-model="telephone"
+                type="number"
                 append-icon="mdi-remote"
                 :rules="rules"
                 hide-details="auto"
@@ -160,17 +162,18 @@ Province"
 
               <v-card
                 v-if="
-                  (name != null) &
-                  (lastname != null) &
-                  (id != null) &
-                  (password != null) &
-                  (age != null) &
-                  (gender != null) &
-                  (email != null) &
-                  (telephone != null) &
-                  (address != null) &
-                  (district != null) &
-                  (province != null)
+                  (name != '') &
+                  (lastname != '') &
+                  (id != '') &
+                  (password != '') &
+                  (age != '') &
+                  (birthday != '') &
+                  (gender != '') &
+                  (email != '') &
+                  (telephone != '') &
+                  (address != '') &
+                  (district != '') &
+                  (province != '')
                 "
               >
                 <v-card-title class="headline"> Successfully </v-card-title>
@@ -191,17 +194,18 @@ Province"
               </v-card>
               <v-card
                 v-if="
-                  name == null ||
-                  lastname == null ||
-                  id == null ||
-                  password == null ||
-                  age == null ||
-                  gender == null ||
-                  email == null ||
-                  telephone == null ||
-                  address == null ||
-                  district == null ||
-                  province == null
+                  name == '' ||
+                  lastname == '' ||
+                  id == '' ||
+                  password == '' ||
+                  age == '' ||
+                  birthday == '' ||
+                  gender == '' ||
+                  email == '' ||
+                  telephone == '' ||
+                  address == '' ||
+                  district == '' ||
+                  province == ''
                 "
               >
                 <v-card-title class="headline"> ข้อมูลไม่ถูกต้อง </v-card-title>
@@ -307,6 +311,7 @@ export default {
       this.id = ''
       this.password = ''
       this.age = ''
+      this.birthday = ''
       this.gender = ''
       this.email = ''
       this.telephone = ''

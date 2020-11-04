@@ -7,12 +7,16 @@
       fixed
       app
       color="#68B2A0"
-      ><v-list v-if="this.$store.getters.log === true">
-        {{ $store.getters.log }}
-        {{ $store.getters.typeDuty }}
-        {{ $store.getters.Data[0].name }}
-        {{ $store.getters.Data[0].lastname }}
-      </v-list>
+      ><v-row align="center" justify="center"
+        ><v-list v-if="this.$store.getters.log === true">
+          <v-btn
+            ><v-icon>mdi-account-circle</v-icon
+            >{{ $store.getters.Data[0].name }}
+            <v-space />
+            {{ $store.getters.Data[0].lastname }}</v-btn
+          >
+        </v-list>
+      </v-row>
       <v-list v-if="this.$store.getters.typeDuty == 0">
         <v-list-item
           v-for="(item, i) in items"

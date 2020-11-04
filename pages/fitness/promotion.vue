@@ -1,23 +1,42 @@
 <template>
   <v-container>
     <v-row justify="center" align="center">
-      <h1 class="black--text">ฟิตเนส</h1>
+      <h1 class="black--text">F I T N E S S</h1>
+    </v-row>
+    <v-row justify="center" align="center">
+      <h3 class="black--text">F I R S T F I T N E S S</h3>
+    </v-row>
+    <v-row justify="center" align="center">
+      <br />
+      <v-col sm="2" />
+      <v-col>
+        <longdo-map />
+      </v-col>
+      <v-col sm="2" />
+      <br />
     </v-row>
     <br />
-    <longdo-map />
-    <br />
     <v-row justify="center" align="center">
-      <v-carousel hide-delimiters>
-        <v-carousel-item
-          v-for="(item, i) in itemss"
-          :key="i"
-          :src="item.src"
-        ></v-carousel-item>
-      </v-carousel>
+      <h1 class="black--text">P R O M O T I O N</h1>
     </v-row>
     <br />
     <v-row justify="center" align="center">
-      <v-btn color="info" @click="addDataFit">สมัครสมาชิก</v-btn>
+      <v-col sm="10">
+        <v-carousel hide-delimiters>
+          <v-carousel-item
+            v-for="(item, i) in itemss"
+            :key="i"
+            :src="item.src"
+          ></v-carousel-item>
+        </v-carousel>
+      </v-col>
+    </v-row>
+    <br />
+    <v-row justify="center" align="center">
+      <v-btn color="info" @click="addDataFit"
+        ><h2>สมัครสมาชิก</h2>
+        <v-icon>mdi-check-outline</v-icon></v-btn
+      >
     </v-row>
   </v-container>
 </template>
@@ -110,6 +129,7 @@ export default {
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
+      alert('สมัครสมาชิกเรียบร้อย')
     },
     reset() {},
     getData() {
@@ -121,7 +141,7 @@ export default {
           if (firebaseData) {
             this.name = firebaseData.name
             this.lastname = firebaseData.lastname
-            this.gender = firebaseData.geender
+            this.gender = firebaseData.gender
             this.birthday = firebaseData.birthday
             this.age = firebaseData.age
             this.email = firebaseData.email
