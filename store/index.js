@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    alllData: [
+    orderData: [],
+    Data: [
       { name: '' },
       { lastname: '' },
       { id: '' },
@@ -27,7 +28,6 @@ export const store = new Vuex.Store({
         province: '',
       },
     ],
-    orderData: [],
     log: false,
     typeDuty: 0,
     headers: [
@@ -41,19 +41,25 @@ export const store = new Vuex.Store({
   },
 
   mutations: {
+    input(state, { piece }) {
+      state.orderData.push({
+        piece,
+      })
+    },
     setUser(state, { payload }) {
-      state.alllData = payload
+      state.Data = payload
       state.typeDuty = 1
       state.log = true
     },
     setAdmin(state, { payload }) {
-      state.alllData = payload
+      state.Data = payload
       state.typeDuty = 2
       state.log = true
     },
     logingOut: (state, { out }) => {
       state.log = false
-      state.allData = out
+      state.Data = out
+      state.typeDuty = 0
     },
     data(state, val) {
       state.data = val
@@ -75,6 +81,7 @@ export const store = new Vuex.Store({
   getters: {
     log: (state) => state.log,
     typeDuty: (state) => state.typeDuty,
+    Data: (state) => state.Data,
     data(state) {
       return state.orderData
     },

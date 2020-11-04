@@ -42,9 +42,7 @@
             ></v-row>
             <h3 class="black--text">Total : {{ piece * 450 }} บาท</h3>
             <br />
-            <nuxt-link to="/product/pay">
-              <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
-            </nuxt-link>
+            <v-btn color="success" class="mr-4" @click="orderData">Buy</v-btn>
           </v-col>
         </v-row>
       </v-row>
@@ -60,7 +58,6 @@ import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
-      piece: 0,
       total: 0,
       productname: 'Haewon ยาสีฟันแฮวอน 2in1',
       fileImage: null,
@@ -69,7 +66,6 @@ export default {
       value: 0,
     }
   },
-
   beforeCreate() {
     if (!firebase.auth().currentUser) {
       console.log('No Login')
@@ -81,39 +77,46 @@ export default {
     this.getData()
   },
   methods: {
-    orderData() {
+    addData() {
       // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
       const data = {
+        name: this.name,
+        lastname: this.lastname,
         piece: this.piece,
-        total: this.piece * 450,
+        total: this.total,
         productname: this.productname,
-        name: this.$store.state.data[0].name,
-        lastname: this.$store.state.data[0].lastname,
       }
-      db.collection('MyOrder')
+      db.collection('MyForm')
         .doc('formdata')
         .set(data)
         .then(function () {
-          console.log('Document successfully written! -> MyOrder')
+          console.log('Document successfully written! -> MyForm')
         })
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
-
       // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
-      const dataOrder = {
-        piece: this.piece,
-        total: this.piece * 100,
-        productname: this.productname,
-        name: this.$store.state.data[0].name,
-        lastname: this.$store.state.data[0].lastname,
+      const dataText = {
+        name: this.name,
+        lastname: this.lastname,
+        id: this.id,
+        password: this.password,
+        gender: this.gender,
+        birthday: this.birthday,
+        age: this.age,
+        email: this.email,
+        telephone: this.telephone,
+        address: this.address,
+        district: this.district,
+        province: this.province,
+        position: this.position,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
-      db.collection('MyOrderHis')
+      db.collection('MyDataRegister')
         .doc()
-        .set(dataOrder)
+        .set(dataText)
         .then(function () {
-          console.log('Document successfully written! -> MyOrderHis')
+          console.log('Document successfully written! -> MyDataRegister')
         })
         .catch(function (error) {
           console.error('Error writing document: ', error)
@@ -121,23 +124,27 @@ export default {
     },
     reset() {},
     getData() {
-      db.collection('MyOrder')
+      db.collection('MyForm')
         .doc('formdata')
         .onSnapshot((doc) => {
           // console.log("Current data: ", doc.data());
           const firebaseData = doc.data()
           if (firebaseData) {
-            this.piece = firebaseData.piece
-            this.total = firebaseData.total
+            this.name = firebaseData.name
+            this.lastname = firebaseData.lastname
+            this.id = firebaseData.id
+            this.password = firebaseData.password
+            this.gender = firebaseData.geender
+            this.birthday = firebaseData.birthday
+            this.age = firebaseData.age
+            this.email = firebaseData.email
+            this.telephone = firebaseData.telephone
+            this.address = firebaseData.address
+            this.district = firebaseData.district
+            this.province = firebaseData.province
           }
         })
     },
   },
 }
 </script>
-<style>
-.theme--dark.v-input input,
-.theme--dark.v-input textarea {
-  color: rgb(255, 255, 255);
-}
-</style>

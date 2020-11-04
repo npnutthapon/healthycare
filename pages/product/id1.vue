@@ -100,8 +100,8 @@ export default {
         piece: this.piece,
         total: this.piece * 2790,
         productname: this.productname,
-        name: this.$store.state.data[0].name,
-        lastname: this.$store.state.data[0].lastname,
+        name: this.$store.state.allData[0].name,
+        lastname: this.$store.state.allData[0].lastname,
       }
       db.collection('MyOrder')
         .doc('formdata')
@@ -116,10 +116,10 @@ export default {
       // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
       const dataOrder = {
         piece: this.piece,
-        total: this.piece * 100,
+        total: this.piece * 2790,
         productname: this.productname,
-        name: this.$store.state.data[0].name,
-        lastname: this.$store.state.data[0].lastname,
+        name: this.$store.state.allData[0].name,
+        lastname: this.$store.state.allData[0].name,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
       db.collection('MyOrderHis')
@@ -142,15 +142,11 @@ export default {
           if (firebaseData) {
             this.piece = firebaseData.piece
             this.total = firebaseData.total
+            this.name = firebaseData.name
+            this.lastnamename = firebaseData.lastname
           }
         })
     },
   },
 }
 </script>
-<style>
-.theme--dark.v-input input,
-.theme--dark.v-input textarea {
-  color: rgb(255, 255, 255);
-}
-</style>

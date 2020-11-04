@@ -43,7 +43,7 @@
       <v-row align="center" justify="center">
         <v-col cols="12" md="10">
           <v-text-field
-            v-model="addressOrder"
+            v-model="address"
             append-icon="mdi-home-variant"
             :rules="rules"
             hide-details="auto"
@@ -62,7 +62,13 @@
         </v-col>
       </v-row>
       <v-row align="center" justify="center"
-        ><v-btn color="success" class="mr-4" @click="submitform"
+        ><v-btn
+          color="success"
+          class="mr-4"
+          @click="
+            submitform()
+            addData()
+          "
           ><v-icon>mdi-bitcoin</v-icon>P a y</v-btn
         ></v-row
       >
@@ -83,6 +89,7 @@
 </template>
 <script>
 import firebase from 'firebase/app'
+import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
@@ -96,6 +103,40 @@ export default {
     }
   },
   methods: {
+    addData() {
+      // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
+      const data = {
+        name: this.name,
+        lastname: this.lastname,
+        address: this.address,
+      }
+      db.collection('MyBillHis')
+        .doc('formdata')
+        .set(data)
+        .then(function () {
+          console.log('Document successfully written! -> MyBillHis')
+        })
+        .catch(function (error) {
+          console.error('Error writing document: ', error)
+        })
+      // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
+      const dataText = {
+        name: this.name,
+        lastname: this.lastname,
+        address: this.address,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      }
+      db.collection('MyBill')
+        .doc()
+        .set(dataText)
+        .then(function () {
+          console.log('Document successfully written! -> MyBill')
+        })
+        .catch(function (error) {
+          console.error('Error writing document: ', error)
+        })
+    },
+    reset() {},
     submitform() {
       // เก็บข้อมูล --> cloud storage
       // เก็บไฟล์ --> storage
@@ -111,7 +152,7 @@ export default {
 
       // Upload file and metadata to the object 'images/mountains.jpg'
       const uploadTask = storageRef
-        .child('images/' + this.id)
+        .child('images/' + this.name + this.lastname)
         .put(file, metadata)
 
       // Listen for state changes, errors, and completion of the upload.

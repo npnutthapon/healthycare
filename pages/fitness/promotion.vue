@@ -27,23 +27,16 @@ import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
-      dialog: false,
-      name: '',
-      lastname: '',
-      id: '',
-      password: '',
-      age: '',
-      email: '',
-      telephone: '',
-      address: '',
-      district: '',
-      province: '',
-      position: 'User',
-      rules: [(value) => !!value || 'Required.'],
-      min: (v) => v.length >= 8 || 'Min 8 characters',
-      birthday: new Date().toISOString().substr(0, 10),
-      menu: false,
-      items: ['Male', 'Female'],
+      name: this.$store.getters.Data[0].name,
+      lastname: this.$store.getters.Data[0].lastname,
+      birthday: this.$store.getters.Data[0].birthday,
+      gender: this.$store.getters.Data[0].gender,
+      age: this.$store.getters.Data[0].age,
+      email: this.$store.getters.Data[0].email,
+      telephone: this.$store.getters.Data[0].telephone,
+      address: this.$store.getters.Data[0].address,
+      district: this.$store.getters.Data[0].district,
+      province: this.$store.getters.Data[0].province,
       itemss: [
         {
           src:
@@ -76,8 +69,6 @@ export default {
       const data = {
         name: this.name,
         lastname: this.lastname,
-        id: this.id,
-        password: this.password,
         gender: this.gender,
         birthday: this.birthday,
         age: this.age,
@@ -86,13 +77,12 @@ export default {
         address: this.address,
         district: this.district,
         province: this.province,
-        position: this.position,
       }
       db.collection('MyDataFit')
         .doc('formdata')
         .set(data)
         .then(function () {
-          console.log('Document successfully written! -> MyForm')
+          console.log('Document successfully written! -> MyDataFit')
         })
         .catch(function (error) {
           console.error('Error writing document: ', error)
@@ -101,8 +91,6 @@ export default {
       const dataText = {
         name: this.name,
         lastname: this.lastname,
-        id: this.id,
-        password: this.password,
         gender: this.gender,
         birthday: this.birthday,
         age: this.age,
@@ -111,7 +99,6 @@ export default {
         address: this.address,
         district: this.district,
         province: this.province,
-        position: this.position,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
       db.collection('MyDataRegisterFit')
@@ -134,8 +121,6 @@ export default {
           if (firebaseData) {
             this.name = firebaseData.name
             this.lastname = firebaseData.lastname
-            this.id = firebaseData.id
-            this.password = firebaseData.password
             this.gender = firebaseData.geender
             this.birthday = firebaseData.birthday
             this.age = firebaseData.age

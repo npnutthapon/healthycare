@@ -7,9 +7,12 @@
       fixed
       app
       color="#68B2A0"
-    >
-      {{ $store.getters.log }}
-      {{ $store.getters.typeDuty }}
+      ><v-list v-if="this.$store.getters.log === true">
+        {{ $store.getters.log }}
+        {{ $store.getters.typeDuty }}
+        {{ $store.getters.Data[0].name }}
+        {{ $store.getters.Data[0].lastname }}
+      </v-list>
       <v-list v-if="this.$store.getters.typeDuty == 0">
         <v-list-item
           v-for="(item, i) in items"
@@ -26,21 +29,19 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <v-btn
+        v-if="this.$store.getters.log === true"
+        color="error"
+        dark
+        block
+        v-bind="attrs"
+        v-on="on"
+        @click="logout()"
+      >
+        <v-icon>mdi-lock-open</v-icon>
+        Logout
+      </v-btn>
       <v-list v-if="this.$store.getters.typeDuty === 1">
-        <v-btn
-          color="error"
-          dark
-          block
-          v-bind="attrs"
-          v-on="on"
-          @click="
-            this.$store.getters.typeDuty = 0
-            logout()
-          "
-        >
-          <v-icon>mdi-lock-open</v-icon>
-          Logout
-        </v-btn>
         <v-list-item
           v-for="(item, i) in items1"
           :key="i"
@@ -57,20 +58,6 @@
         </v-list-item>
       </v-list>
       <v-list v-if="this.$store.getters.typeDuty === 2">
-        <v-btn
-          color="error"
-          dark
-          block
-          v-bind="attrs"
-          v-on="on"
-          @click="
-            this.$store.getters.typeDuty = 0
-            logout()
-          "
-        >
-          <v-icon>mdi-lock-open</v-icon>
-          Logout
-        </v-btn>
         <v-list-item
           v-for="(item, i) in items2"
           :key="i"
@@ -112,7 +99,6 @@
 </template>
 
 <script>
-import { db } from '~/plugins/firebaseConfig.js'
 import { store } from '~/store/index'
 export default {
   store,
@@ -141,21 +127,6 @@ export default {
           title: 'L O G I N',
           to: '/login',
         },
-        {
-          icon: 'mdi-bitcoin',
-          title: 'P A Y',
-          to: '/product/pay',
-        },
-        {
-          icon: 'mdi-headset',
-          title: 'A D M I N',
-          to: '/admin',
-        },
-        {
-          icon: 'mdi-shopping',
-          title: 'S H O P',
-          to: '/product',
-        },
       ],
       items1: [
         {
@@ -167,6 +138,11 @@ export default {
           icon: 'mdi-shopping',
           title: 'S H O P',
           to: '/product',
+        },
+        {
+          icon: 'mdi-shopping',
+          title: 'S H O P',
+          to: '/fitness/promotion',
         },
       ],
       items2: [
@@ -196,30 +172,10 @@ export default {
       })
     },
     logout() {
-      db.collection('MyRegister')
-        .where('id', '==', this.$store.getters.allData[0].id)
-        .where('password', '==', this.$store.getters.allData[0].password)
-        .onSnapshot((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // console.log(doc.data())
-            this.log = false
-            const out = null
-            this.$store.dispatch('logingOut', out)
-            // console.log(out)
-          })
-        })
-      db.collection('Employee')
-        .where('id', '==', this.id)
-        .where('password', '==', this.password)
-        .onSnapshot((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // console.log(doc.data())
-            this.log = false
-            const out = null
-            this.$store.dispatch('logingOut', out)
-            // console.log(out)
-          })
-        })
+      const out = null
+      this.$store.dispatch('logingOut', out)
+      this.$router.push('/')
+      console.log(out)
     },
   },
 }

@@ -82,7 +82,7 @@ export default {
             this.$router.push('/admin')
             const payload = data
             this.$store.dispatch('setAdmin', payload)
-            console.log(payload[0])
+            console.log(payload)
           })
         })
     },
