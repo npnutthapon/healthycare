@@ -1,10 +1,12 @@
 <template>
   <v-container>
-    <v-row align="center" justify="center"><H1>A d m i n</H1></v-row>
+    <v-row align="center" justify="center"
+      ><H1 class="black--text">A d m i n</H1></v-row
+    >
     <br />
-    <v-card color="#264D59" class="mb-3">
+    <v-card class="mb-3">
       <v-card-title>
-        ข้อมูลการจอง
+        ข้อมูลการซื้อ
         <v-spacer />
         <v-text-field
           v-model="search"
@@ -16,9 +18,9 @@
       </v-card-title>
       <v-data-table :headers="headers" :items="Order" :search="search" />
     </v-card>
-    <v-card color="#264D59">
+    <v-card class="mb-3">
       <v-card-title>
-        ข้อมูลการจอง
+        ข้อมูลการสมัครฟิตเนส
         <v-spacer />
         <v-text-field
           v-model="search1"
@@ -34,9 +36,9 @@
         :search="search1"
       />
     </v-card>
-    <v-card color="#264D59">
+    <v-card class="mb-3">
       <v-card-title>
-        ข้อมูลการจอง
+        ข้อมูลการชำระ
         <v-spacer />
         <v-text-field
           v-model="search2"

@@ -77,73 +77,26 @@ export default {
     this.getData()
   },
   methods: {
-    addData() {
-      // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
-      const data = {
-        name: this.name,
-        lastname: this.lastname,
+    orderData() {
+      const dataOrder = {
         piece: this.piece,
-        total: this.total,
+        total: this.piece * 450,
         productname: this.productname,
-      }
-      db.collection('MyForm')
-        .doc('formdata')
-        .set(data)
-        .then(function () {
-          console.log('Document successfully written! -> MyForm')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
-      // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
-      const dataText = {
-        name: this.name,
-        lastname: this.lastname,
-        id: this.id,
-        password: this.password,
-        gender: this.gender,
-        birthday: this.birthday,
-        age: this.age,
-        email: this.email,
-        telephone: this.telephone,
-        address: this.address,
-        district: this.district,
-        province: this.province,
-        position: this.position,
+        name: this.$store.getters.Data[0].name,
+        lastname: this.$store.getters.Data[0].lastname,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
-      db.collection('MyDataRegister')
+      db.collection('MyOrderHis')
         .doc()
-        .set(dataText)
+        .set(dataOrder)
         .then(function () {
-          console.log('Document successfully written! -> MyDataRegister')
+          console.log('Document successfully written! -> MyOrderHis')
         })
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
-    },
-    reset() {},
-    getData() {
-      db.collection('MyForm')
-        .doc('formdata')
-        .onSnapshot((doc) => {
-          // console.log("Current data: ", doc.data());
-          const firebaseData = doc.data()
-          if (firebaseData) {
-            this.name = firebaseData.name
-            this.lastname = firebaseData.lastname
-            this.id = firebaseData.id
-            this.password = firebaseData.password
-            this.gender = firebaseData.geender
-            this.birthday = firebaseData.birthday
-            this.age = firebaseData.age
-            this.email = firebaseData.email
-            this.telephone = firebaseData.telephone
-            this.address = firebaseData.address
-            this.district = firebaseData.district
-            this.province = firebaseData.province
-          }
-        })
+      alert('สั่งสินค้าเรียบร้อย')
+      this.$router.push('/product/pay')
     },
   },
 }

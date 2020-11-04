@@ -90,31 +90,12 @@ export default {
   },
   methods: {
     orderData() {
-      // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
-      const data = {
+      const dataOrder = {
         piece: this.piece,
         total: this.piece * 5970,
         productname: this.productname,
-        name: this.$store.state.data[0].name,
-        lastname: this.$store.state.data[0].lastname,
-      }
-      db.collection('MyOrder')
-        .doc('formdata')
-        .set(data)
-        .then(function () {
-          console.log('Document successfully written! -> MyOrder')
-        })
-        .catch(function (error) {
-          console.error('Error writing document: ', error)
-        })
-
-      // เก็บข้อมูล Input Text ใน collection MyText (มีหลาย document ข้อมูลจะเพิ่มขึ้นเรื่อย ๆ )
-      const dataOrder = {
-        piece: this.piece,
-        total: this.piece * 100,
-        productname: this.productname,
-        name: this.$store.state.data[0].name,
-        lastname: this.$store.state.data[0].lastname,
+        name: this.$store.getters.Data[0].name,
+        lastname: this.$store.getters.Data[0].lastname,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
       db.collection('MyOrderHis')
@@ -126,26 +107,9 @@ export default {
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
-    },
-    reset() {},
-    getData() {
-      db.collection('MyOrder')
-        .doc('formdata')
-        .onSnapshot((doc) => {
-          // console.log("Current data: ", doc.data());
-          const firebaseData = doc.data()
-          if (firebaseData) {
-            this.piece = firebaseData.piece
-            this.total = firebaseData.total
-          }
-        })
+      alert('สั่งสินค้าเรียบร้อย')
+      this.$router.push('/product/pay')
     },
   },
 }
 </script>
-<style>
-.theme--dark.v-input input,
-.theme--dark.v-input textarea {
-  color: rgb(255, 255, 255);
-}
-</style>

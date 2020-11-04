@@ -80,6 +80,12 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app color="#94B447">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <template>
+        <h2>
+          <v-icon>mdi-hospital</v-icon> H E A L T H Y C A R E
+          <v-icon>mdi-hospital</v-icon>
+        </h2>
+      </template>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -97,7 +103,10 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app color="#94B447">
-      <span>HealthyCare</span>
+      <span
+        ><v-icon>mdi-hospital</v-icon> H e a l t h y C a r e
+        <v-icon>mdi-hospital</v-icon></span
+      >
     </v-footer>
   </v-app>
 </template>

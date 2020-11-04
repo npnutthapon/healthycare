@@ -1,23 +1,42 @@
 <template>
   <v-container>
     <v-row justify="center" align="center">
-      <h1 class="black--text">คลินิกทัตแพทย์</h1>
+      <h1 class="black--text">D E N T A L C L I N I C</h1>
+    </v-row>
+    <v-row justify="center" align="center">
+      <h3 class="black--text">ห ม อ ฟั น ค ลิ นิ ก</h3>
+    </v-row>
+    <v-row justify="center" align="center">
+      <br />
+      <v-col sm="2" />
+      <v-col>
+        <longdo-map />
+      </v-col>
+      <v-col sm="2" />
+      <br />
     </v-row>
     <br />
-    <longdo-map />
-    <br />
     <v-row justify="center" align="center">
-      <v-carousel hide-delimiters>
-        <v-carousel-item
-          v-for="(item, i) in itemss"
-          :key="i"
-          :src="item.src"
-        ></v-carousel-item>
-      </v-carousel>
+      <h1 class="black--text">P R O M O T I O N</h1>
     </v-row>
     <br />
     <v-row justify="center" align="center">
-      <v-btn color="info" @click="addDataFit">สมัครสมาชิก</v-btn>
+      <v-col sm="10">
+        <v-carousel hide-delimiters>
+          <v-carousel-item
+            v-for="(item, i) in itemss"
+            :key="i"
+            :src="item.src"
+          ></v-carousel-item>
+        </v-carousel>
+      </v-col>
+    </v-row>
+    <br />
+    <v-row justify="center" align="center">
+      <v-btn color="info" @click="addDataDen"
+        ><h2>สมัครสมาชิก</h2>
+        <v-icon>mdi-check-outline</v-icon></v-btn
+      >
     </v-row>
   </v-container>
 </template>
@@ -27,23 +46,16 @@ import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
-      dialog: false,
-      name: '',
-      lastname: '',
-      id: '',
-      password: '',
-      age: '',
-      email: '',
-      telephone: '',
-      address: '',
-      district: '',
-      province: '',
-      position: 'User',
-      rules: [(value) => !!value || 'Required.'],
-      min: (v) => v.length >= 8 || 'Min 8 characters',
-      birthday: new Date().toISOString().substr(0, 10),
-      menu: false,
-      items: ['Male', 'Female'],
+      name: this.$store.getters.Data[0].name,
+      lastname: this.$store.getters.Data[0].lastname,
+      birthday: this.$store.getters.Data[0].birthday,
+      gender: this.$store.getters.Data[0].gender,
+      age: this.$store.getters.Data[0].age,
+      email: this.$store.getters.Data[0].email,
+      telephone: this.$store.getters.Data[0].telephone,
+      address: this.$store.getters.Data[0].address,
+      district: this.$store.getters.Data[0].district,
+      province: this.$store.getters.Data[0].province,
       itemss: [
         {
           src:
@@ -67,13 +79,11 @@ export default {
     this.getData()
   },
   methods: {
-    addDataFit() {
+    addDataDen() {
       // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
       const data = {
         name: this.name,
         lastname: this.lastname,
-        id: this.id,
-        password: this.password,
         gender: this.gender,
         birthday: this.birthday,
         age: this.age,
@@ -82,13 +92,12 @@ export default {
         address: this.address,
         district: this.district,
         province: this.province,
-        position: this.position,
       }
-      db.collection('MyDataFit')
+      db.collection('MyDataDen')
         .doc('formdata')
         .set(data)
         .then(function () {
-          console.log('Document successfully written! -> MyForm')
+          console.log('Document successfully written! -> MyDataDen')
         })
         .catch(function (error) {
           console.error('Error writing document: ', error)
@@ -97,8 +106,6 @@ export default {
       const dataText = {
         name: this.name,
         lastname: this.lastname,
-        id: this.id,
-        password: this.password,
         gender: this.gender,
         birthday: this.birthday,
         age: this.age,
@@ -107,7 +114,6 @@ export default {
         address: this.address,
         district: this.district,
         province: this.province,
-        position: this.position,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
       db.collection('MyDataRegisterFit')
@@ -119,10 +125,11 @@ export default {
         .catch(function (error) {
           console.error('Error writing document: ', error)
         })
+      alert('สมัครสมาชิกเรียบร้อย')
     },
     reset() {},
     getData() {
-      db.collection('MyDataFit')
+      db.collection('MyDataDen')
         .doc('formdata')
         .onSnapshot((doc) => {
           // console.log("Current data: ", doc.data());
@@ -130,9 +137,7 @@ export default {
           if (firebaseData) {
             this.name = firebaseData.name
             this.lastname = firebaseData.lastname
-            this.id = firebaseData.id
-            this.password = firebaseData.password
-            this.gender = firebaseData.geender
+            this.gender = firebaseData.gender
             this.birthday = firebaseData.birthday
             this.age = firebaseData.age
             this.email = firebaseData.email

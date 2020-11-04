@@ -18,11 +18,10 @@
       <v-row>
         <v-row>
           <v-col sm="1" />
-          <v-col sm="4">
-            <v-card class="mx-auto" color="white" dark max-width="325">
-              <img
-                src="https://cdn.discordapp.com/attachments/746260527235334237/769500989320724480/SSP54950016.png" /></v-card
-          ></v-col>
+          <v-col sm="3">
+            <img
+              src="https://cdn.discordapp.com/attachments/746260527235334237/773567023204270130/SSP54950016.png"
+          /></v-col>
           <v-col sm="7">
             <h4 class="black--text">
               เป็นเวย์โปรตีนนำเข้าที่ได้รับรองคุณภาพจากองค์การอาหารและยา (อย.),
@@ -38,7 +37,6 @@
             <h4 class="black--text">
               อาจเติม น้ำผึ้งหรือโยเกิร์ตเพื่อเพิ่มรสชาติ
             </h4>
-            <h4 class="black--text">เลขที่ อย. : 20-1-22648-1-0022</h4>
             <br />
             <v-row>
               <v-col sm="2"
