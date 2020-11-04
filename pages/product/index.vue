@@ -58,10 +58,8 @@
             </nuxt-link>
             <br />
             <h3 class="black--text">SKIN BARRIER FRESH SERUM</h3>
-            <h4 class="black--text">
-              เซรั่มเพื่อผิวแข็งแรง แก้ผิวบอบบาง ลดการไวสิว ผิวขาวใส
-              ไร้ริ้วรอยก่อนวัย
-            </h4>
+            <h4 class="black--text">เซรั่มเพื่อผิวแข็งแรง แก้ผิวบอบบาง</h4>
+            <h4 class="black--text">ลดการไวสิว ผิวขาวใส ไร้ริ้วรอยก่อนวัย</h4>
             <v-card-text class="black--text">1,290 บาท / ชิ้น</v-card-text>
           </v-card>
         </v-row>

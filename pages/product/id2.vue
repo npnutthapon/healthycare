@@ -35,6 +35,8 @@
                   class="black--text"
                   type="number"
                   :counter="10"
+                  min="1"
+                  max="10"
                   :rules="piece"
                   label="Piece"
                   required
@@ -58,6 +60,7 @@ import { db } from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
+      piece: 1,
       total: 0,
       productname: 'Haewon ยาสีฟันแฮวอน 2in1',
       fileImage: null,
@@ -72,9 +75,6 @@ export default {
     } else {
       console.log('Login ok')
     }
-  },
-  created() {
-    this.getData()
   },
   methods: {
     orderData() {
